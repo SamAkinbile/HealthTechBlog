@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from django.iews import generic
+from django.shortcuts import render, get_object_or_404
+from django.views import generic, Views
 from .model import Post
 
 
@@ -8,5 +8,5 @@ class PostList(generic.ListView):
     queryset = Post.objects.filter(status=1).order_by('-created_on')
     template_name = name 'index.html'
     paginate_by = 6
-    
+
 
