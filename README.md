@@ -1,10 +1,8 @@
-# The Easy Eater
+# The Health Tech
 
-The Easy Eater is a meal planning app which is designed to take the stress out of everyday cooking. The app is targeted towards users who enjoy their food and trying new recipes but also want to save time and effort when deciding what to cook for dinner every night of the week!
+The Health Tech is a blog dedicated to exploring health and well-being, delving into the relationship between modern advancements and innovative technology. Discover insightful articles on how the latest tech developments are transforming the health and wellness landscape.
 
-The site acts as a repository for recipes whereby users can store their own recipes and also browse other users' recipes and bookmark them for a later date. Users can get organised for the week ahead by adding recipes to their meal planner for each day of the week. 
-
-The live link can be found here - [The Easy Eater](https://easy-eater.herokuapp.com/)
+The live link can be found here - [The Health Tech](https://djangoirelandblog-2541e83b59d1.herokuapp.com/)
 
 ![Colour Palette](docs/readme_images/site_mockup.png)
 ## Table of Contents
@@ -29,13 +27,8 @@ The live link can be found here - [The Easy Eater](https://easy-eater.herokuapp.
     + [Footer](#footer)
     + [Home Page](#home-page)
     + [User Account Pages](#user-account-pages)
-    + [Browse Recipes](#browse-recipes)
-    + [Recipe Detail Page](#recipe-detail-page)
-    + [Add Recipe Form](#add-recipe-form)
-    + [Update Recipe Form](#update-recipe-form)
-    + [Delete Recipe](#delete-recipe)
-    + [My Meal Plan](#my-meal-plan)
-    + [My Recipes Page](#my-recipes-page)
+  
+
     + [My Bookmarks Page](#my-bookmarks-page)
     + [Error Pages](#error-pages)
     + [Future Features](#future-features)
@@ -59,40 +52,18 @@ A visitor to Easy Eater would be someone who is most likely an adult who enjoys 
 - As a Site User, I can log in or log out of my account so that I can keep my account secure.
 - As a Site User I can see my login status so that I know if I'm logged in or out.
 
-#### EPIC | User Navigation
-- As a Site User I can immediately understand the purpose of the site so that I can decide if it meets my needs.
-- As a Site User, I can intuitively navigate around the site so that I can find content and understand where I am on the site.
-- As a Site User, I can view a paginated list of recipes so that I can select a recipe to view.
-- As a Site User, I can click on a recipe so that I can read the full recipe, ingredients required and view comments left by users.
-
-#### EPIC | Recipe Management
-- As a Site User, I can input my favourite recipes onto the app through an easy to use interface so that I can share them with other users.
-- As a Site User, I can edit and delete recipes that I have created so that I can easily make changes without having to start over.
-- As a Site User I can view my recipes so that I can see and manage all recipes I have created in the one location.
-- As a Site User I can view my bookmarked recipes so I can find them easily in the one location.
-
-#### EPIC | Recipe Interaction
-- As a Site User, I can save other user's recipes to my bookmarks so that I can find them easily at a later date.
-- As a Site User, I can comment on other people's recipes so I can give my feedback.
-- As a Site User, I can edit and delete comments that I have created so that I can easily make changes if I have made a mistake.
-
-#### EPIC | Mealplan Management
-- As a Site User, I can add/delete recipes to my meal planner for a particular day of the week so that I can create a meal plan for the week ahead.
-- As a Site User, I can view my meal plan for the week when I log into my account so that I can plan for the week ahead.
-
 #### EPIC | Site Administration
-- As a Site Administrator, I can create, read, update and delete recipes, comments and meal plan items so that I can manage the app content.
+- As a Site Administrator, I can create, read, update and delete blogs, comments and likes so that I can manage the app content.
 
 #### User stories not yet implemented
 
 The following user stories were scoped out of the project due to time constraints and labelled as "Won't Have" on the project board on Github. It is intended that these user stories will be implemented at a later date. 
 
-- As a Site User, I can export the ingredients from the recipes on my meal plan to a shopping list and remove the ones that are not necessary so that I can have all my required ingredients for the week in one place.
-- As a Site User, I can search and filter recipes so that I can find the one I want.
+- As a Site User, I can search words about an articuleor blog  so that I can find the one I want.
 
 ### Design
 
-The site has a very simple and clean design which was purposely chosen in order to keep in theme with the site's goal. i.e. invoking a sense of calm in the user and reducing stress when it comes to everyday cooking. 
+Health Tech features a simple and clean design, intentionally chosen to align with the site’s goal of promoting calmness and reducing stress. This aesthetic complements our mission of enhancing well-being through the latest health and technology insights.
 
 #### Colour Scheme
 Colour palette from Coolors
@@ -367,16 +338,13 @@ The following buttons will display if the user is logged in and is the recipe au
 - If there is no meal plan for a particular day, that card will display a plus icon and the text "Add Recipe". Clicking anywhere inside the meal plan card will take you to the browse recipes page.
 - If a user tries to access this page (by changing the url) without being signed in they are redirected to the log in page.
 
-### My Recipes Page
+### Home Page
 
 ![header](docs/readme_images/features/myrecipes_page.png)
 
-- This page displays all recipes which the logged in user has created.
-- The recipe cards are paginated after every 8 recipes. 
-- Each card displays the recipe's image, Title and Cook Time. 
-- If the recipe is not yet published the word 'DRAFT' will appear in red next to the recipe title.
-- Clicking anywhere inside the recipes card will take you directly to that recipe's detailed page.
-- If a user tries to access this page (by changing the url) without being signed in they are redirected to the log in page.
+- This page displays all blogs which the logged in user has created.
+- Each blogs displays the title's image,  and the articules. 
+- If a user tries to get more info about a blog. Users can go to the bottom of the page to check for more infomationa about the articules.
 
 ### My Bookmarks Page
 
@@ -386,9 +354,6 @@ The following buttons will display if the user is logged in and is the recipe au
 - Clicking anywhere inside the recipes card will take you directly to that recipe's detailed page.
 - If a user tries to access this page (by changing the url) without being signed in they are redirected to the log in page.
 
-### Error Pages
-
-Custom Error Pages were created to give the user more information on the error and to guide them back to the site.
 
 ![header](docs/readme_images/features/403_error.png)
 
@@ -400,13 +365,9 @@ Custom Error Pages were created to give the user more information on the error a
 ### Future Features
 The following user stories were scoped out of the project due to time constraints and labelled as "Could Have" on the project board in Github. It is intended that these user stories will be implemented at a later date. 
 
-- As a Site User, I can export the ingredients from the recipes on my meal plan to a shopping list and remove the ones that are not necessary so that I can have all my required ingredients for the week in one place.
-- As a Site User, I can search and filter recipes so that I can find the one I want.
-Searching and filtering
+- As a Site User, I can comment, post and likes blogs.
 
-Other potential features include:
-- Adding extra categories on the Meal Plan Item for breakfast, lunch, dinner and snacks so the user can plan out their meals for the full day rather than just for dinner.
-- Adding vegan and vegetarian labels to the recipe so the user can filter by these options.
+
 
 ## Deployment - Heroku
 
@@ -456,7 +417,7 @@ Add the following Config Vars in Heroku:
 
 The site is now live and operational.
 ## Forking this repository
-- Locate the repository at this link [The Easy Eater](https://github.com/AliOKeeffe/PP4_My_Meal_Planner).
+-  Locate the repository at this link [health tech](https://github.com/SamAkinbile/DjangoBlog?tab=readme-ov-file#home-page)
 - At the top of the repository, on the right side of the page, select "Fork" from the buttons available. 
 - A copy of the repository is now created.
 
