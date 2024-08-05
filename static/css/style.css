@@ -22,12 +22,12 @@ body {
 }
 
 .dark-bg {
-    background-color: #445261;
+    background-color: orange;
 }
 
 .main-bg {
     background-color: #F9FAFC;
-    background-image: url('/workspace/DjangoBlog/static/css/images/stethoscope.jpg');
+    
 }
 
 .card {
@@ -45,7 +45,7 @@ body {
     min-width: 30%;
     left: -2px;
     background-color: #23BBBB;
-    background-image: url('/workspace/DjangoBlog/static/css/images/stethoscope.jpg');
+ 
 }
 
 .author {
