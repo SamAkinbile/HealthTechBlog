@@ -27,8 +27,6 @@ The live link can be found here - [The Health Tech](https://djangoirelandblog-25
     + [Footer](#footer)
     + [Home Page](#home-page)
     + [User Account Pages](#user-account-pages)
-  
-
     + [My Bookmarks Page](#my-bookmarks-page)
     + [Error Pages](#error-pages)
     + [Future Features](#future-features)
@@ -48,9 +46,9 @@ A visitor to Easy Eater would be someone who is most likely an adult who enjoys 
 ### User Stories
 
 #### EPIC | User Profile
-- As a Site User I can register an account so that I can add/edit/delete my recipes and comment on and bookmark other people's recipes and add recipes to my meal planner.
-- As a Site User, I can log in or log out of my account so that I can keep my account secure.
-- As a Site User I can see my login status so that I know if I'm logged in or out.
+- As a Health Tech user, I can register an account to add, edit, and delete my health tips, comment on and bookmark others' posts, and add entries to my wellness planner.
+- As a Health Tech user, I can log in or out to keep my account secure.
+-As a Health Tech user, I can see my login status to know if I’m logged in or out.
 
 #### EPIC | Site Administration
 - As a Site Administrator, I can create, read, update and delete blogs, comments and likes so that I can manage the app content.
@@ -59,7 +57,7 @@ A visitor to Easy Eater would be someone who is most likely an adult who enjoys 
 
 The following user stories were scoped out of the project due to time constraints and labelled as "Won't Have" on the project board on Github. It is intended that these user stories will be implemented at a later date. 
 
-- As a Site User, I can search words about an articuleor blog  so that I can find the one I want.
+- As a Site User, I can search words about an articule or blog  so that I can find the one I want.
 
 ### Design
 
