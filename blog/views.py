@@ -5,6 +5,12 @@ from .models import Post
 from .forms import CommentForm
 
 
+from django.contrib.auth.decorators import login_required
+from django.http import HttpResponseRedirect
+from django.urls import reverse
+from .models import Quiz, Question, PossibleAnswer, UserResponse
+from .forms import QuizForm
+
 class PostList(generic.ListView):
     model = Post
     queryset = Post.objects.filter(status=1).order_by("-created_on")
@@ -75,4 +81,49 @@ class PostLike(View):
         else:
             post.likes.add(request.user)
 
-        return HttpResponseRedirect(reverse('post_detail', args=[slug]))       
+        return HttpResponseRedirect(reverse('post_detail', args=[slug]))   
+
+@login_required
+def take_quiz(request, quiz_id):
+    quiz = get_object_or_404(Quiz, pk=quiz_id)
+    questions = quiz.questions.all()
+
+    if request.method == 'POST':
+        form = QuizForm(request.POST, questions=questions)
+        if form.is_valid():
+            for question in questions:
+                selected_answer_id = form.cleaned_data[f'question_{question.id}']
+                selected_answer = get_object_or_404(PossibleAnswer, pk=selected_answer_id)
+                correct = selected_answer.is_correct
+
+                UserResponse.objects.create(
+                    user=request.user,
+                    quiz=quiz,
+                    question=question,
+                    selected_answer=selected_answer,
+                    correct=correct
+                )
+
+            return HttpResponseRedirect(reverse('quiz_result', args=[quiz.id]))
+
+    else:
+        form = QuizForm(questions=questions)
+
+    return render(request, 'take_quiz.html', {'quiz': quiz, 'form': form})
+
+@login_required
+def quiz_result(request, quiz_id):
+    quiz = get_object_or_404(Quiz, pk=quiz_id)
+    user_responses = UserResponse.objects.filter(user=request.user, quiz=quiz)
+
+    correct_answers = user_responses.filter(correct=True).count()
+    total_questions = quiz.questions.count()
+
+    context = {
+        'quiz': quiz,
+        'correct_answers': correct_answers,
+        'total_questions': total_questions,
+        'user_responses': user_responses
+    }
+
+    return render(request, 'quiz_result.html', context)

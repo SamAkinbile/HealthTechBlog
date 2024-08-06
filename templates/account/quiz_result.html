@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+  <h1>{{ quiz.title }} - Results</h1>
+  <p>You got {{ correct_answers }} out of {{ total_questions }} correct.</p>
+  <ul>
+    {% for response in user_responses %}
+      <li>{{ response.question.text }} - {{ response.selected_answer.text }} - {{ "Correct" if response.correct else "Incorrect" }}</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

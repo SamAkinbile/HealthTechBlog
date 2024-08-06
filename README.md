@@ -232,17 +232,7 @@ Custom Error Pages were created to give the user more information on the error a
 - Django allauth was installed and used to create the Sign up, Log in and Log out functionality. 
 - Success messages inform the user if they have logged in/ logged out successfully.
 
-### Browse Recipes
 
-![header](docs/readme_images/features/browse_page.png)
-
-- This page displays all recipes with a status of published with the most recent recipes displayed first.
-- The recipe cards are paginated after every 8 recipes. 
-- Each card displays the recipe's image, Title and Cook Time. 
-- Clicking anywhere inside the recipe card will take you directly to that recipe's detailed page.
-
-### Recipe Detail Page
-**Recipe Header Section**
 
 ![header](docs/readme_images/features/recipe_header.png)
 
@@ -292,49 +282,11 @@ The following buttons will display if the user is logged in and is the recipe au
 
 ![header](docs/readme_images/features/delete_comment.png)
 
-- The user receives a success message notifying them that the comment has been successfully added, updated or deleted.
-- If a user tries to edit or delete a comment (by changing the url) without being signed in they are redirected to the log in page.
-- If a user tries to edit/delete another user's comment (by changing the url) they receive a custom 403 error.
+- If users attempt to edit or delete a comment without being signed in, they are redirected to the login page.
+- If users try to edit or delete another user’s comment, they receive a custom 403 error message.
 
-### Add Recipe Form
 
-![header](docs/readme_images/features/add_recipe.png)
 
-- If the user is logged in, then they can add a recipe by clicking the link on the navigation bar.
-- The form fields for 'Ingredients' and 'Method' include a WYSIWYG editor called Summernote to help the user format their content by adding bullet points, headings etc.
-- The user can upload a photo if they wish. If they choose not to, a default image displays as their recipe image.
-- The user can choose to publish the recipe now or save for later through a drop down menu. If they choose to 'save for later', the recipe will not appear on the Browse Recipe page but the user will be able to access it in their 'My Recipes' page and it will be labelled as 'DRAFT'.
-- Failing to fill out the recipe's Title, Description, Ingredients, or Method, results in the form failing and rendering a message stating which fields you have missed.
-- If a user tries to add a recipe (by changing the url) without being signed in they are redirected to the log in page.
-- The user will receive a success message notifying them that the recipe has been successfully added.
-
-### Update Recipe Form
-
-![header](docs/readme_images/features/update_recipe.png)
-
-- If the user is logged in and is the author or the recipe they can choose to edit the recipe by clicking the edit button on the recipe detail page. 
-- The form opens with all fields populated with the original content.
-- If a user tries to update a recipe (by changing the url) without being signed in they are redirected to the log in page.
-- If a user tries to update another user's recipe (by changing the url) they receive a custom 403 error.
-- The user will receive a success message notifying them that the recipe has been successfully updated.
-
-### Delete Recipe
-
- ![header](docs/readme_images/features/delete_recipe.png)
-
-- If the user is logged in and is the author or the recipe they can choose to delete the recipe by clicking the delete button on the recipe detail page.  
-- The user is asked to confirm if they wish to delete the recipe or cancel.
-- The user will receive a success message notifying them that the recipe has been successfully deleted.
-
-### My Meal Plan
-
-![header](docs/readme_images/features/mealplan_page.png)
-
-- This page displays the logged in user's meal plan for the week.
-- The meal plan cards are ordered Monday to Sunday. 
-- If a user has added a recipe to their meal plan for a particular day, the card will display the recipe image and title. Clicking anywhere inside the meal plan card will take you directly to that recipe's detailed page.
-- If there is no meal plan for a particular day, that card will display a plus icon and the text "Add Recipe". Clicking anywhere inside the meal plan card will take you to the browse recipes page.
-- If a user tries to access this page (by changing the url) without being signed in they are redirected to the log in page.
 
 ### Home Page
 
@@ -476,5 +428,4 @@ To clone this repository follow the below steps:
 
 ## Acknowledgments
 
-Many thanks to my mentor Antonio for his support and advice. 
-Thanks to the Code Institute Weekend Tutor me
+Many thanks to God. Project 4 was challenging with no help from support team.
