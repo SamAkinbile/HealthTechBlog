@@ -24,8 +24,6 @@ The live link can be found here - [The Health Tech](https://djangoirelandblog-25
     + [Footer](#footer)
     + [Home Page](#home-page)
     + [User Account Pages](#user-account-pages)
-    + [Error Pages](#error-pages)
-    + [Future Features](#future-features)
   * [Deployment - Heroku](#deployment---heroku)
   * [Forking this repository](#forking-this-repository)
   * [Cloning this repository](#cloning-this-repository)
