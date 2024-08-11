@@ -244,8 +244,7 @@ To clone this repository follow the below steps:
 - [Pagination](https://docs.djangoproject.com/en/2.2/topics/pagination/#using-paginator-in-a-view)
 - [AutoSlugField](https://django-extensions.readthedocs.io/en/latest/field_extensions.html)
 - [Code Institute - Blog Walkthrough Project](https://github.com/Code-Institute-Solutions/Django3blog)
-- [Google](google.com)
-- [Ai](chatgpt.com) - Debugging codes and troubling
+- [AI](https://chatgpt.com/?oai-dm=1) - Debugging codes and troubling
 
 ## Acknowledgments
 
