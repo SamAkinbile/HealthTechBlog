@@ -1,14 +1,11 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
 from django.http import HttpResponseRedirect
-from .models import Post
+from .models import Post, Quiz,Question
 from .forms import CommentForm
-
-
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.urls import reverse
-from .models import Quiz, Question, PossibleAnswer, UserResponse
 from .forms import QuizForm
 
 class PostList(generic.ListView):
@@ -91,57 +88,26 @@ class PostLike(View):
 
 @login_required
 def take_quiz(request, quiz_id):
-    quiz = get_object_or_404(Quiz, pk=quiz_id)
-    questions = quiz.questions.all()
-
-    if request.method == 'POST':
-        form = QuizForm(request.POST, questions=questions)
-        if form.is_valid():
-            for question in questions:
-                selected_answer_id = form.cleaned_data[f'question_{question.id}']
-                selected_answer = get_object_or_404(PossibleAnswer, pk=selected_answer_id)
-                correct = selected_answer.is_correct
-
-                UserResponse.objects.create(
-                    user=request.user,
-                    quiz=quiz,
-                    question=question,
-                    selected_answer=selected_answer,
-                    correct=correct
-                )
-
-            return HttpResponseRedirect(reverse('quiz_result', args=[quiz.id]))
-
-    else:
-        form = QuizForm(questions=questions)
-
-    return render(request, 'take_quiz.html', {'quiz': quiz, 'form': form})
-
-@login_required
-def quiz_detail(request, quiz_id):
     quiz = get_object_or_404(Quiz, id=quiz_id)
     questions = quiz.questions.all()
 
     if request.method == 'POST':
-        form = QuizForm(request.POST, questions=questions)
-        if form.is_valid():
-            correct_answers = 0
-            total_questions = questions.count()
+        for question in questions:
+            selected_option = request.POST.get(f'question_{question.id}')
+            UserResponse.objects.create(
+                user=request.user,
+                quiz=quiz,
+                question=question,
+                selected_option=selected_option
+            )
+        return redirect('quiz_results', quiz_id=quiz.id)
 
-            for i, question in enumerate(questions):
-                if form.cleaned_data[f'question_{i}'] == str(question.correct_option):
-                    correct_answers += 1
+    return render(request, 'take_quiz.html', {'quiz': quiz, 'questions': questions})
 
-            score = (correct_answers / total_questions) * 100
+# View to see quiz results
+def quiz_results(request, quiz_id):
+    quiz = get_object_or_404(Quiz, id=quiz_id)
+    user_responses = UserResponse.objects.filter(user=request.user, quiz=quiz)
+    score = sum([1 for response in user_responses if response.selected_option == response.question.correct_option])
 
-            return render(request, 'quiz_result.html', {
-                'quiz': quiz,
-                'score': score,
-                'total_questions': total_questions,
-                'correct_answers': correct_answers
-            })
-
-    else:
-        form = QuizForm(questions=questions)
-
-    return render(request, 'quiz_detail.html', {'quiz': quiz, 'form': form})
+    return render(request, 'quiz/quiz_results.html', {'quiz': quiz, 'score': score, 'total': len(user_responses)})

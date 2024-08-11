@@ -46,7 +46,6 @@ class Comment(models.Model):
     def __str__(self):
         return f"Comment {self.body} by {self.name}"
 
-from django.db import models
 
 class Quiz(models.Model):
     title = models.CharField(max_length=200)
@@ -66,3 +65,4 @@ class Question(models.Model):
 
     def __str__(self):
         return self.text
+

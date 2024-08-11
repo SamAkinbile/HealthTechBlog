@@ -1,14 +1,13 @@
 from django.contrib import admin
-from .models import Post, Comment
+from .models import Post, Comment,Quiz,Question
 from django_summernote.admin import SummernoteModelAdmin
-from .models import Quiz, Question, PossibleAnswer, UserResponse
 
 
 @admin.register(Post)
 class PostAdmin(SummernoteModelAdmin):
 
     list_display = ('title', 'slug', 'status', 'created_on')
-    search_fields = ['title', 'content']
+    search_fields = ['title', 'content ']
     list_filter = ('status', 'created_on')
     prepopulated_fields = {'slug': ('title',)}
     summernote_fields = ('content',)
@@ -24,13 +23,15 @@ class CommentAdmin(admin.ModelAdmin):
     def approve_comments(self, request, queryset):
         queryset.update(approved=True)
 
+# Admin configuration for Quiz
+@admin.register(Quiz)
+class QuizAdmin(admin.ModelAdmin):
+    list_display = ('title', 'description')
+    search_fields = ('title',)
 
-class PossibleAnswerInline(admin.TabularInline):
-    model = PossibleAnswer
-
+# Admin configuration for Question
+@admin.register(Question)
 class QuestionAdmin(admin.ModelAdmin):
-    inlines = [PossibleAnswerInline]
-
-admin.site.register(Quiz)
-admin.site.register(Question, QuestionAdmin)
-admin.site.register(UserResponse)
+    list_display = ('quiz', 'text', 'option1', 'option2', 'option3', 'option4', 'correct_option')
+    search_fields = ('text',)
+    list_filter = ('quiz',)
