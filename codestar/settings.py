@@ -33,7 +33,7 @@ DEBUG = True
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
-ALLOWED_HOSTS = ['8000-samakinbile-djangoblog-8hwykr2vgou.ws.codeinstitute-ide.net', '.herokuapp.com']
+ALLOWED_HOSTS = ['8000-samakinbile-djangoblog-8hwykr2vgou.ws.codeinstitute-ide.net', '.herokuapp.com', '8000-samakinbile-djangoblog-0w6aivpk23k.ws-eu115.gitpod.io']
 
 
 # Application definition
@@ -55,8 +55,6 @@ INSTALLED_APPS = [
     'django_summernote',
     'cloudinary',
     'blog',
-    # "django_extensions",
-    "home",
 
 ]
 
@@ -194,13 +192,6 @@ else:
     DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER')
 
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_USE_SSL = False
 
 
 
