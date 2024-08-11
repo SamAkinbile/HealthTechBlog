@@ -17,6 +17,12 @@ class PostList(generic.ListView):
     template_name = "index.html"
     paginate_by = 6
 
+    def get_context_data(self, *args, **kwargs):
+        context = super(PostList, self).get_context_data(*args, **kwargs)
+        quiz = Quiz.objects.all().first()
+        context['quiz'] = quiz
+        return context
+
 
 class PostDetail(View):
 
@@ -112,18 +118,30 @@ def take_quiz(request, quiz_id):
     return render(request, 'take_quiz.html', {'quiz': quiz, 'form': form})
 
 @login_required
-def quiz_result(request, quiz_id):
-    quiz = get_object_or_404(Quiz, pk=quiz_id)
-    user_responses = UserResponse.objects.filter(user=request.user, quiz=quiz)
+def quiz_detail(request, quiz_id):
+    quiz = get_object_or_404(Quiz, id=quiz_id)
+    questions = quiz.questions.all()
 
-    correct_answers = user_responses.filter(correct=True).count()
-    total_questions = quiz.questions.count()
+    if request.method == 'POST':
+        form = QuizForm(request.POST, questions=questions)
+        if form.is_valid():
+            correct_answers = 0
+            total_questions = questions.count()
 
-    context = {
-        'quiz': quiz,
-        'correct_answers': correct_answers,
-        'total_questions': total_questions,
-        'user_responses': user_responses
-    }
+            for i, question in enumerate(questions):
+                if form.cleaned_data[f'question_{i}'] == str(question.correct_option):
+                    correct_answers += 1
 
-    return render(request, 'quiz_result.html', context)
+            score = (correct_answers / total_questions) * 100
+
+            return render(request, 'quiz_result.html', {
+                'quiz': quiz,
+                'score': score,
+                'total_questions': total_questions,
+                'correct_answers': correct_answers
+            })
+
+    else:
+        form = QuizForm(questions=questions)
+
+    return render(request, 'quiz_detail.html', {'quiz': quiz, 'form': form})

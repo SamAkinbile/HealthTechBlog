@@ -46,33 +46,23 @@ class Comment(models.Model):
     def __str__(self):
         return f"Comment {self.body} by {self.name}"
 
+from django.db import models
+
 class Quiz(models.Model):
     title = models.CharField(max_length=200)
+    description = models.TextField()
 
     def __str__(self):
         return self.title
 
 class Question(models.Model):
-    quiz = models.ForeignKey(Quiz, related_name='questions', on_delete=models.CASCADE)
-    text = models.CharField(max_length=500)
+    quiz = models.ForeignKey(Quiz, on_delete=models.CASCADE, related_name='questions')
+    text = models.CharField(max_length=255)
+    option1 = models.CharField(max_length=255)
+    option2 = models.CharField(max_length=255)
+    option3 = models.CharField(max_length=255)
+    option4 = models.CharField(max_length=255)
+    correct_option = models.IntegerField(choices=((1, 'Option 1'), (2, 'Option 2'), (3, 'Option 3'), (4, 'Option 4')))
 
     def __str__(self):
         return self.text
-
-class PossibleAnswer(models.Model):
-    question = models.ForeignKey(Question, related_name='possible_answers', on_delete=models.CASCADE)
-    text = models.CharField(max_length=500)
-    is_correct = models.BooleanField(default=False)
-
-    def __str__(self):
-        return self.text
-
-class UserResponse(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    quiz = models.ForeignKey(Quiz, on_delete=models.CASCADE)
-    question = models.ForeignKey(Question, on_delete=models.CASCADE)
-    selected_answer = models.ForeignKey(PossibleAnswer, on_delete=models.CASCADE)
-    correct = models.BooleanField()
-
-    def __str__(self):
-        return f"{self.user.username} - {self.quiz.title}"
