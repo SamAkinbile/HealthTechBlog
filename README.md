@@ -130,7 +130,6 @@ Custom Error Pages were created to give the user more information on the error a
 - Django allauth was installed and used to create the Sign up, Log in and Log out functionality. 
 - Success messages inform the user if they have logged in/ logged out successfully.
 
-
 ### Home Page
 
 ![header](static/css/images/home.png)
@@ -138,7 +137,6 @@ Custom Error Pages were created to give the user more information on the error a
 - This page displays all blogs which the logged in user has created.
 - Each blogs displays the title's image,  and the articules. 
 - If a user tries to get more info about a blog. Users can go to the bottom of the page to check for more infomationa about the articules.
-
 
 ## Deployment - Heroku
 
