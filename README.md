@@ -4,18 +4,12 @@ The Health Tech is a blog dedicated to exploring health and well-being, delving 
 
 The live link can be found here - [The Health Tech](https://djangoirelandblog-2541e83b59d1.herokuapp.com/)
 
-![Colour Palette](docs/readme_images/site_mockup.png)
+
 ## Table of Contents
 
   * [User Experience (UX)](#user-experience-ux)
     + [User Stories](#user-stories)
     + [Design](#design)
-      - [Colour Scheme](#colour-scheme)
-      - [Imagery](#imagery)
-      - [Fonts](#fonts)
-      - [Wireframes](#wireframes)
-  * [Agile Methodology](#agile-methodology)
-  * [Data Model](#data-model)
   * [Testing](#testing)
   * [Security Features and Defensive Design](#security-features-and-defensive-design)
     + [User Authentication](#user-authentication)
@@ -27,7 +21,6 @@ The live link can be found here - [The Health Tech](https://djangoirelandblog-25
     + [Footer](#footer)
     + [Home Page](#home-page)
     + [User Account Pages](#user-account-pages)
-    + [My Bookmarks Page](#my-bookmarks-page)
     + [Error Pages](#error-pages)
     + [Future Features](#future-features)
   * [Deployment - Heroku](#deployment---heroku)
@@ -38,17 +31,13 @@ The live link can be found here - [The Health Tech](https://djangoirelandblog-25
   * [Credits](#credits)
   * [Acknowledgments](#acknowledgments)
 
-<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
-## User Experience (UX)
-
-A visitor to Easy Eater would be someone who is most likely an adult who enjoys their food and trying new recipes but also wants to save time and effort when deciding what to cook for dinner every night of the week.
-
 ### User Stories
 
 #### EPIC | User Profile
-- As a Health Tech user, I can register an account to add, edit, and delete my health tips, comment on and bookmark others' posts, and add entries to my wellness planner.
+- As a Health Tech user, I can register an account to add, edit, and delete my health tips, and comment on others' posts, and add entries to my wellness planner.
 - As a Health Tech user, I can log in or out to keep my account secure.
 -As a Health Tech user, I can see my login status to know if I’m logged in or out.
+- Quiz is for avaliable as well.
 
 #### EPIC | Site Administration
 - As a Site Administrator, I can create, read, update and delete blogs, comments and likes so that I can manage the app content.
@@ -61,85 +50,15 @@ The following user stories were scoped out of the project due to time constraint
 
 ### Design
 
-Health Tech features a simple and clean design, intentionally chosen to align with the site’s goal of promoting calmness and reducing stress. This aesthetic complements our mission of enhancing well-being through the latest health and technology insights.
-
-#### Colour Scheme
-Colour palette from Coolors
-
-![Colour Palette](docs/readme_images/colour_scheme.png)
-
-The colour scheme of the site is mainly pale cream, pink and brown with thin gold borders. The colours chosen are quite neutral and calming. 
-
-Great care was taken to establish a good contrast between background colours and text at all times to ensure maximum user accessibility. 
-
-#### Imagery
-There is only one static image on the site depicting a family dinner on the home page. The rest of the imagery will be uploaded by users for their individual recipes. 
-
-#### Fonts
-The Montserrat font is the main font used for the body of the website with the Playfair Display font used for the main headings on the home page. These fonts were imported via Google Fonts. Sans Serif is the backup font, in case for any reason the main font isn't being imported into the site correctly.
-
-#### Wireframes
-
-<details>
-
- <summary>Landing Page</summary>
-
-![Landing Page](docs/wireframes/landing_wireframe.png)
-</details>
-
-<details>
-
-<summary>Browse Recipes</summary>
-
-![Browse Recipes](docs/wireframes/browse_wireframe.png)
-</details>
+Health Tech features a simple and clean design, intentionally chosen to align with the site’s goal of promoting calmness and reducing stress. This aesthetic complements our mission of enhancing well-being through the informations by blogs.
 
 
-<details>
 
-<summary>Add Recipe</summary>
-
-![Add Recipe](docs/wireframes/addrecipe_wireframe.png)
-</details>
-
-<details>
-
-<summary>My Recipes</summary>
-
-![My Recipes](docs/wireframes/myrecipes_wireframe.png)
-</details>
-
-<details>
-
-<summary>My Bookmarks</summary>
-
-![My Bookmarks](docs/wireframes/mybookmarks_wireframe.png)
-</details>
-
-## Agile Methodology
-
-Github projects was used to manage the development process using an agile approach. Please see link to project board [here](https://github.com/AliOKeeffe/PP4_My_Meal_Planner/projects/2)
-
-The 6 Epics listed above were documented within the Github project as Milestones. A Github Issue was created for each User Story which was then allocated to a milestone(Epic). Each User Story has defined acceptance criteria to make it clear when the User Story has been completed. The acceptance criteria are further broken down into tasks to facilitate the User Story's execution.
-
-## Data Model
-I used principles of Object-Oriented Programming throughout this project and Django’s Class-Based Generic Views.  
-
-Django AllAuth was used for the user authentication system.
-
-In order for the users to create recipes a custom recipe model was required. The recipe author is a foreign key to the User model given a recipe can only have one author.
-
-The Comment model allows users to comment on individual recipes and the Recipe is a foreign key in the comment model given a comment can only be linked to one recipe. 
-
-The meal plan item model allows users to add recipes to a meal plan for a particular day. A meal plan item can only have one user and one recipe and is therefore linked to the User and Recipe models through foreign keys.
-
-The diagram below details the database schema.
-
-![Database Schema](docs/readme_images/database_schema.png)
 
 ## Testing
 
-Testing and results can be found [here](/TESTING.md)
+-Through pep 8
+            -validator at w3school
 
 ## Security Features and Defensive Design
 
@@ -169,11 +88,9 @@ Custom Error Pages were created to give the user more information on the error a
 
 ### Header
 
-![header](docs/readme_images/features/nav_loggedout.png)
+![header](static/css/images/image.png)
 
-**Logo**
-- A customised logo was created using Hatchful by Shopify which is a free logo generator.
-- This logo is positioned in the top left of the navigation bar. The logo is linked to the home page for ease of navigation for the user.
+
 
 **Navigation Bar**
 
@@ -181,142 +98,46 @@ Custom Error Pages were created to give the user more information on the error a
 - The My Account navigation link is a drop down menu which includes the Sign up and Log in links. 
 - When the user has logged in, the My Account drop down menu changes to display the user's name and a profile icon.
 
-![header](docs/readme_images/features/header.png)
-
-- The options to Sign up or Log in will change to the option to log out once a user has logged in.
-- Once a user has signed in, more options such as 'Add Recipe', 'My Meal Plan', 'My Recipes' and 'My Bookmarks' become available.
-- The navigation bar is fully responsive, collapsing into a hamburger menu when the screen size becomes too small.
-- Hovering over the links will lighten the font.
-
-
 ### Footer
 
-![header](docs/readme_images/features/footer.png)
+![header](static/css/images/footer.png)
 
 - The footer section includes links to Facebook, Instagram, Twitter and Youtube.
 - Clicking the links in the footer opens a separate browser tab to avoid pulling the user away from the site.
 
 ### Home Page
 
-**Call to Action Section**
+![header](static/css/images/home.png)
 
-![header](docs/readme_images/features/call_out.png)
-
-- The home page includes a call to action section which encourages the user to sign up to the site with the message "Take the stress out of everyday cooking!" and an image of a family dinner.
-- The CTA includes a sign up button which takes the user to the sign up page.
-- If a user is already signed in the message changes to 'Welcome back to The Easy Eater' and the user is encouraged to create a new recipe.
 - The sign up button changes to a 'Create' button which takes the user to the 'Add recipe' page. 
 
-![header](docs/readme_images/features/callout_logged_in.png)
-
-**What We Do Section**
-
-![header](docs/readme_images/features/what_we_do.png)
-
-- The "What We Do' section gives a brief overview of what the site has to offer and summarises the basic features with three simple steps illustrated with font-awesome icons.
 
 ### User Account Pages
 
 **Sign Up**
 
-![header](docs/readme_images/features/signup.png)
+![header](static/css/images/signup.png)
 
 **Log In**
 
-![header](docs/readme_images/features/login.png)
+![header](static/css/images/signin.png
+)
 
 **Log Out**
 
-![header](docs/readme_images/features/logout.png)
+![header](static/css/images/signout.png)
 
 - Django allauth was installed and used to create the Sign up, Log in and Log out functionality. 
 - Success messages inform the user if they have logged in/ logged out successfully.
 
 
-
-![header](docs/readme_images/features/recipe_header.png)
-
-The recipe header section at the top of the page shows the recipe image, title, author, prep time and cook time.
-
-**Recipe Action Buttons**
-
-The following buttons will display if the user is logged in:
-
-![header](docs/readme_images/features/buttons_not_author.png)
-
-- Add to Meal Plan Button - Clicking on the button opens the Meal Plan Modal (see below).
-- Bookmark button - Clicking the outlined bookmark button renders the recipe 'bookmarked' by the user which will then fill the bookmark icon and add the recipe to the user's bookmarks page. Clicking the button again will remove the recipe from the user's bookmarks and turn the icon back to an outline.
-
-The following buttons will display if the user is logged in and is the recipe author:
-
-![header](docs/readme_images/features/action_buttons.png)
-
-- Update Recipe Button - Clicking the button opens the update recipe form prepopulated with the current recipe details.
-- Delete Recipe Button - Clicking the button opens the confirm delete recipe page. 
-
-**Meal Plan Modal**
-
-![header](docs/readme_images/features/mealplan_modal.png)
-
-- The meal plan modal includes a form which allows the user to select a day of the week.
-- Once the user clicks the add to meal plan button, the recipe is added to the user's meal plan for the selected day.
-- Only one recipe can be added per day so if a user already has a meal plan item for a particular day, adding another one will overwrite the existing one. 
-- The user receives a success message notifiying them that the recipe has been successfully added to their meal plan.
-
-**Recipe Details Section**
-
-![header](docs/readme_images/features/recipe_details.png)
-
-- The main body of the page consists of the recipe description, ingredients, and method. 
-
-**Comments Section**
-
-![header](docs/readme_images/features/comment.png)
-
-![header](docs/readme_images/features/add_comment.png)
-
-- The comments section lists all comments left by users for that particular recipe.
-- Comments can only be left if a user is logged in. Any comments left by the user that is currently signed in can be updated or deleted using the buttons in the comment header. 
-    
-![header](docs/readme_images/features/edit_comment.png)
-
-![header](docs/readme_images/features/delete_comment.png)
-
-- If users attempt to edit or delete a comment without being signed in, they are redirected to the login page.
-- If users try to edit or delete another user’s comment, they receive a custom 403 error message.
-
-
-
-
 ### Home Page
 
-![header](docs/readme_images/features/myrecipes_page.png)
+![header](static/css/images/home.png)
 
 - This page displays all blogs which the logged in user has created.
 - Each blogs displays the title's image,  and the articules. 
 - If a user tries to get more info about a blog. Users can go to the bottom of the page to check for more infomationa about the articules.
-
-### My Bookmarks Page
-
-![header](docs/readme_images/features/my_bookmarks.png)
-
-- This page displays all recipes which the logged in user has added to their bookmarks.
-- Clicking anywhere inside the recipes card will take you directly to that recipe's detailed page.
-- If a user tries to access this page (by changing the url) without being signed in they are redirected to the log in page.
-
-
-![header](docs/readme_images/features/403_error.png)
-
-- 400 Bad Request - The Easy Eater is unable to handle this request.
-- 403 Page Forbidden - Looks like you're trying to access forbidden content. Please log out and sign in to the correct account.
-- 404 Page Not Found - The page you're looking for doesn't exist.
-- 500 Server Error - The Easy Eater is currently unable to handle this request
-
-### Future Features
-The following user stories were scoped out of the project due to time constraints and labelled as "Could Have" on the project board in Github. It is intended that these user stories will be implemented at a later date. 
-
-- As a Site User, I can comment, post and likes blogs.
-
 
 
 ## Deployment - Heroku
@@ -428,4 +249,11 @@ To clone this repository follow the below steps:
 
 ## Acknowledgments
 
-Many thanks to God. Project 4 was challenging with no help from support team.
+Here’s a revised version of your message:
+
+---
+
+I am deeply grateful to God for helping me through Project 4, which proved to be quite challenging without much support from the team. My mentor’s availability was inconsistent; on some days, he was willing to help, while on others, he was less responsive and unhelpful. Despite explaining how difficult I found this project, and his acknowledgment of the challenge, no additional assistance was provided.
+
+The struggle to get this project to its current state was significant and stressful. At one point, I reached out to my previous mentor for help with a specific error I was encountering. I am especially thankful to Eva, John, and Sarah for their patience and support on Sunday, as they guided me through resolving the error step-by-step.
+
