@@ -121,8 +121,7 @@ Custom Error Pages were created to give the user more information on the error a
 
 **Log In**
 
-![header](static/css/images/signin.png
-)
+![header](static/css/images/signin.png)
 
 **Log Out**
 
@@ -256,3 +255,5 @@ I am deeply grateful to God for helping me through Project 4, which proved to be
 
 The struggle to get this project to its current state was significant and stressful. At one point, I reached out to my previous mentor for help with a specific error I was encountering. I am especially thankful to Eva, John, and Sarah for their patience and support on Sunday, as they guided me through resolving the error step-by-step.
 
+
+![header](static/css/images/C.png)

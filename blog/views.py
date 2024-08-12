@@ -81,6 +81,7 @@ class PostLike(View):
 
 @login_required
 def take_quiz(request, quiz_id):
+    
     quiz = get_object_or_404(Quiz, id=quiz_id)
     questions = quiz.questions.all()
 
