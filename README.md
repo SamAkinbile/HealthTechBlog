@@ -246,14 +246,6 @@ To clone this repository follow the below steps:
 - [AI](https://chatgpt.com/?oai-dm=1) - Debugging codes and troubling
 
 ## Acknowledgments
-
-Here’s a revised version of your message:
-
----
-
-I am deeply grateful to God for helping me through Project 4, which proved to be quite challenging without much support from the team. My mentor’s availability was inconsistent; on some days, he was willing to help, while on others, he was less responsive and unhelpful. Despite explaining how difficult I found this project, and his acknowledgment of the challenge, no additional assistance was provided.
+I am deeply grateful to God for helping me through Project 4, which proved to be quite challenging without much support from the team. My mentor’s support was inconsistent; on some days, he was willing to help, while on others, he was less responsive and unhelpful. Despite explaining how difficult I found this project, and  how stressfull this was. I receive a little acknowledgment and support, no additional assistance was provided. My initial intention for this to have a quiz page generated. 
 
 The struggle to get this project to its current state was significant and stressful. At one point, I reached out to my previous mentor for help with a specific error I was encountering. I am especially thankful to Eva, John, and Sarah for their patience and support on Sunday, as they guided me through resolving the error step-by-step.
-
-
-![header](static/css/images/C.png)
