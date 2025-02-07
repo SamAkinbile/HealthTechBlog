@@ -8,7 +8,7 @@ django-allauth==0.63.6
 django-crispy-forms==1.14.0
 django-summernote==0.8.20.0
 gunicorn==22.0.0
-psycopg2==2.9.9
+psycopg2-binary==2.9.10
 pytz==2024.1
 sqlparse==0.5.1
 urllib3==1.26.15

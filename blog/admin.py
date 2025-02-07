@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Post, Comment, Quiz, Question
+from .models import Post, Comment
 from django_summernote.admin import SummernoteModelAdmin
 
 
@@ -24,20 +24,8 @@ class CommentAdmin(admin.ModelAdmin):
         queryset.update(approved=True)
 
 
-# Admin configuration for Quiz
-@admin.register(Quiz)
-class QuizAdmin(admin.ModelAdmin):
-    list_display = ('title', 'description')
-    search_fields = ('title',)
 
 
-# Admin configuration for Question
-@admin.register(Question)
-class QuestionAdmin(admin.ModelAdmin):
-    list_display = (
-        'quiz', 'text', 'option1', 'option2',
-        'option3', 'option4', 'correct_option'
-    )
-    search_fields = ('text',)
-    list_filter = ('quiz',)
+
+
 
