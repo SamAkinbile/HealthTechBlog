@@ -5,6 +5,11 @@ from .models import Post
 from .forms import CommentForm
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse
+from .models import Contact
+from .forms import ContactForm
+from .models import NewsletterSubscription
+from .forms import NewsletterForm
+from django.contrib import messages
 
 
 class PostList(generic.ListView):
@@ -73,6 +78,32 @@ class PostLike(View):
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
 
+def newsletter_subscription(request):
+    if request.method == 'POST':
+        form = NewsletterForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Subscribed to newsletter successfully!")
+            return redirect('blog_home')  # Change to your desired redirect URL
+    else:
+        form = NewsletterForm()
+    return render(request, 'blog/newsletter_form.html', {'form': form})
+
+
+def contact(request):
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Your message has been sent successfully!")
+            return redirect('post_detail')  # Change to your desired redirect URL
+    else:
+        form = ContactForm()
+    return render(request, 'blog/contact_form.html', {'form': form})
+
+
+def blog_home(request):
+    return render(request, 'blog/post_detail')
 
 
 

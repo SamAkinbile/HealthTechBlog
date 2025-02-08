@@ -142,3 +142,13 @@ body {
     background: transparent;
     border: none;
 }
+
+.overlay {
+	min-height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	position: fixed;
+	background: rgb(50, 205, 120);
+	z-index: -1;
+}

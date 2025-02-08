@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+<
+{% block title %}Contact Us{% endblock %}
+
+{% block content %}
+
+<div class="overlay"></div>
+    <div class="container-fluid">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col text-center mt-3">
+          
+               
+<div class="container header-container">
+<div class="container">
+    <h1>Contact Us</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Send</button>
+    </form>
+    {% if messages %}
+       
+            {% for message in messages %}
+               <ul> <li>{{ message }}</li></ul>
+            {% endfor %}
+        
+    {% endif %}
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+{% endblock %}

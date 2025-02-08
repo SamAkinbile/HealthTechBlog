@@ -38,7 +38,7 @@
                         <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="https://quiz-questions.uk/medical-quiz/?utm_content=cmp-true">Quiz</a>
+                        <a class="nav-link" href="{% url 'contact_form' %}">conatct Us</a>
                     </li>
                     
                     {% if user.is_authenticated %}

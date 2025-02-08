@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+{% block title %}Subscribe to Newsletter{% endblock %}
+
+<div class="overlay"></div>
+    <div class="container-fluid">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col text-center mt-3">
+          
+               
+<div class="container header-container">
+<div class="container">
+    <h1>Subscribe to our Newsletter</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Subscribe</button>
+    </form>
+    {% if messages %}
+        <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+{% endblock %}
