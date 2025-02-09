@@ -90,10 +90,10 @@ def newsletter_subscription(request):
         if form.is_valid():
             form.save()
             messages.success(request, "Subscribed to newsletter successfully!")
-            return redirect('post_detail')  # Change to your desired redirect URL
+            return redirect('home')  # Change to your desired redirect URL
     else:
         form = NewsletterForm()
-    return render(request, 'blog/newsletter_form.html', {'form': form})
+    return render(request, 'blog/newsletter_subscription.html', {'form': form})
 
 
 def contact(request):
@@ -102,15 +102,16 @@ def contact(request):
         if form.is_valid():
             form.save()
             messages.success(request, "Your message has been sent successfully!")
-            return redirect('post_detail')  # Change to your desired redirect URL
+            return redirect('post_detail')  
     else:
         form = ContactForm()
     return render(request, 'blog/contact_form.html', {'form': form})
 
 
+def welcome(request):
+    return render(request, 'welcome.html')
+
 def blog_home(request):
     return render(request, 'blog/post_detail')
-
-
 
 

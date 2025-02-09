@@ -148,7 +148,26 @@ body {
 	width: 100%;
 	top: 0;
 	left: 0;
-	position: fixed;
+	position: absolute;
 	background: rgb(50, 205, 120);
+    padding-top:100px;
 	z-index: -1;
+}
+
+.subscribe-button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 12px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.subscribe-button:hover {
+    background-color: #45a049; /* Darker green on hover */
 }
