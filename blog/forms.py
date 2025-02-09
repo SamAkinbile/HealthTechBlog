@@ -8,8 +8,6 @@ class CommentForm(forms.ModelForm):
         model = Comment
         fields = ('body',)
 
-
-
 class NewsletterForm(forms.ModelForm):
     class Meta:
         model = NewsletterSubscription
