@@ -3,21 +3,24 @@
 
 {% block content %}
 
-{% block title %}Subscribe to Newsletter{% endblock %}
+
 
 <div class="overlay"></div>
     <div class="container-fluid">
+
+        {% block title %}Newsletter{% endblock %}
+
             <div class="row">
                 <div class="col text-center mt-3">
           
-               
+                  
 <div class="container header-container">
 <div class="container">
     <h1>Subscribe to our Newsletter</h1>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">Subscribe</button>
+        <button type="submit" class="btn btn-primary">Subscribe</button>
     </form>
     {% if messages %}
         <ul>
@@ -26,6 +29,7 @@
             {% endfor %}
         </ul>
     {% endif %}
+</div>
 </div>
 </div>
 </div>

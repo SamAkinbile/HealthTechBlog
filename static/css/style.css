@@ -149,25 +149,33 @@ body {
 	top: 0;
 	left: 0;
 	position: absolute;
-	background: rgb(50, 205, 120);
+	background:#23BBBB
     padding-top:100px;
 	z-index: -1;
 }
 
+
 .subscribe-button {
-    background-color: #4CAF50; /* Green */
+    background: linear-gradient(45deg, #FF416C, #FF4B2B);
     border: none;
-    color: white;
+    color: rgb(84, 160, 103);
     padding: 12px 24px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    border-radius: 8px;
+    border-radius: 25px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+ 
 }
 
 .subscribe-button:hover {
-    background-color: #45a049; /* Darker green on hover */
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
+
+.subscribe-button:active {
+    transform: scale(0.95);
+}
+

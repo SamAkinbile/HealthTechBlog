@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404, reverse
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views import generic, View
 from django.http import HttpResponseRedirect
 from .models import Post
@@ -9,7 +9,6 @@ from .models import Contact
 from .forms import ContactForm, NewsletterForm
 from .models import NewsletterSubscription
 from django.contrib import messages
-
 
 
 class PostList(generic.ListView):
@@ -90,7 +89,7 @@ def newsletter_subscription(request):
         if form.is_valid():
             form.save()
             messages.success(request, "Subscribed to newsletter successfully!")
-            return redirect('home')  # Change to your desired redirect URL
+            return redirect('welcome')  # Change to your desired redirect URL
     else:
         form = NewsletterForm()
     return render(request, 'blog/newsletter_subscription.html', {'form': form})
@@ -102,7 +101,7 @@ def contact(request):
         if form.is_valid():
             form.save()
             messages.success(request, "Your message has been sent successfully!")
-            return redirect('post_detail')  
+            return redirect('welcome')  
     else:
         form = ContactForm()
     return render(request, 'blog/contact_form.html', {'form': form})
