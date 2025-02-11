@@ -6,9 +6,10 @@ from .forms import CommentForm
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse
 from .models import Contact
-from .forms import ContactForm, NewsletterForm
+from .forms import ContactForm, NewsletterForm, PostForm
 from .models import NewsletterSubscription
 from django.contrib import messages
+from django.utils.text import slugify
 
 
 class PostList(generic.ListView):
@@ -83,6 +84,81 @@ class PostLike(View):
 
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
+
+@login_required
+def post_create(request):
+    if request.method == 'POST':
+        form = PostForm(request.POST, request.FILES)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.author = request.user
+
+            # Generate slug from title
+            post.slug = slugify(post.title)
+            
+            # Ensure slug is unique
+            original_slug = post.slug
+            counter = 1
+            while Post.objects.filter(slug=post.slug).exists():
+                post.slug = f"{original_slug}-{counter}"
+                counter += 1
+
+            # Save the post after ensuring unique slug
+            post.save()
+
+            return redirect('post_detail', slug=post.slug)
+    else:
+        form = PostForm()
+
+    return render(request, 'blog/post_form.html', {'form': form})
+
+
+
+
+ # Ensure only the superuser can edit
+    if not request.user.is_superuser:
+        return redirect(reverse('post_detail', kwargs={'slug': slug}))  # Redirect if not allowed
+
+    if request.method == "POST":
+        form = PostForm(request.POST, request.FILES, instance=post)
+        if form.is_valid():
+            form.save()
+            return redirect(reverse('post_detail', kwargs={'slug': post.slug}))  # Redirect to updated post
+    else:
+        form = PostForm(instance=post)  # Load existing data
+
+    return render(request, 'blog/post_edit.html', {'form': form, 'post': post})
+
+def post_update(request, slug):
+    post = get_object_or_404(Post, slug=slug)
+
+    if not request.user.is_superuser:
+        return redirect(reverse('post_detail', kwargs={'slug': slug}))
+
+    if request.method == "POST":
+        form = PostForm(request.POST, request.FILES, instance=post)
+        if form.is_valid():
+            form.save()
+            return redirect(reverse('post_detail', kwargs={'slug': post.slug}))
+    else:
+        form = PostForm(instance=post)
+
+    return render(request, 'blog/post_edit.html', {'form': form, 'post': post})
+
+
+# Delete Post
+@login_required
+def post_delete(request, slug):
+    post = get_object_or_404(Post, slug=slug)
+    if request.user != post.author:
+        return redirect('post_list')
+
+    if request.method == 'POST':
+        post.delete()
+        return redirect('post_list')
+    return render(request, 'blog/post_confirm_delete.html', {'post': post})
+
+# newletter and contact us
 def newsletter_subscription(request):
     if request.method == 'POST':
         form = NewsletterForm(request.POST)

@@ -47,14 +47,9 @@
                         <ul class="dropdown-menu border-0" aria-labelledby="dropdownMenuLink">
                             <li><a class="dropdown-item" href="{% url 'contact_form' %}">Contact Us</a></li>
                             <li><a class="dropdown-item" href="{% url 'newsletter_subscription' %}">Subcribe to our Newletter</a></li>
+                            <li><a class="dropdown-item" href="{% url 'post_create' %}">Add a Blog</a></li>
                         </ul>
                     </li>
-                    
-
-                     
-                ,
-
-
                     {% if user.is_authenticated %}
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
