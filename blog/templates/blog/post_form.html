@@ -1,14 +1,39 @@
 <!-- templates/blog/post_form.html -->
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
 
 {% block content %}
-  <h2>Create a New Blog Post</h2>
 
-  <form method="POST" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form.as_p }}  <!-- Render each form field as a paragraph -->
-    
-    <button type="submit">Create Post</button>
-  </form>
-  
+<div class="overlay"></div>
+<div class="container-fluid">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col text-center mt-3">
+          
+                <div class="container header-container">
+                    <div class="contain">
+                        <h2>Create a New Blog Post</h2>
+
+                        <!-- Display messages if any -->
+                        {% if messages %}
+                            <div class="messages">
+                                {% for message in messages %}
+                                    <div class="alert alert-info">{{ message }}</div>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+
+                        <form method="POST" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {{ form.as_p }}  <!-- Render each form field as a paragraph -->
+                            
+                            <button type="submit" class="btn btn-signup btn-lg">Create Post</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 {% endblock %}

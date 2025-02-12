@@ -33,7 +33,7 @@ DEBUG = True
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
-ALLOWED_HOSTS = ['8000-samakinbile-healthtechb-k3syjqxgbg0.ws.codeinstitute-ide.net', '.herokuapp.com', '8000-samakinbile-djangoblog-0w6aivpk23k.ws-eu115.gitpod.io', '127.0.0.1' ]
+ALLOWED_HOSTS = ['8000-samakinbile-healthtechb-k3syjqxgbg0.ws.codeinstitute-ide.net', '.herokuapp.com', '8000-samakinbile-djangoblog-0w6aivpk23k.ws-eu115.gitpod.io', '127.0.0.1', 'localhost' ]
 
 
 # Application definition

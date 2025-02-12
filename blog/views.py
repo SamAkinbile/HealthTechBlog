@@ -13,24 +13,33 @@ from django.utils.text import slugify
 
 
 class PostList(generic.ListView):
-    """
-    Returns all published posts in :model:`blog.Post`
-    and displays them in a page of six posts.
-    **Context**
-
-    ``queryset``
-        All published instances of :model:`blog.Post`
-    ``paginate_by``
-        Number of posts per page.
-
-    **Template:**
-
-    :template:`blog/index.html`
-    """
-    queryset = Post.objects.filter(status=1)
-    template_name = "blog/index.html"
+    model = Post
+    queryset = Post.objects.filter(status=1).order_by("-created_on")
+    template_name = "index.html"
     paginate_by = 6
 
+
+class PostDetail(View):
+
+    def get(self, request, slug, *args, **kwargs):
+        queryset = Post.objects.filter(status=1)
+        post = get_object_or_404(queryset, slug=slug)
+        comments = post.comments.filter(approved=True).order_by("-created_on")
+        liked = False
+        if post.likes.filter(id=self.request.user.id).exists():
+            liked = True
+
+        return render(
+            request,
+            "post_detail.html",
+            {
+                "post": post,
+                "comments": comments,
+                "commented": False,
+                "liked": liked,
+                "comment_form": CommentForm()
+            },
+        )
     
     def post(self, request, slug, *args, **kwargs):
 
@@ -77,6 +86,8 @@ class PostLike(View):
 
 
 
+# add a blog 
+
 @login_required
 def post_create(request):
     if request.method == 'POST':
@@ -85,9 +96,12 @@ def post_create(request):
             post = form.save(commit=False)
             post.author = request.user
 
+            # Set the post's status to Draft (0) by default, or Published (1) if necessary
+            post.status = 1  # You can set this to 1 if you want to make the post published right away
+
             # Generate slug from title
             post.slug = slugify(post.title)
-            
+
             # Ensure slug is unique
             original_slug = post.slug
             counter = 1
@@ -98,12 +112,17 @@ def post_create(request):
             # Save the post after ensuring unique slug
             post.save()
 
+            # Add a message for the user based on post status
+            if post.status == 0:
+                messages.info(request, "Your draft blog has been saved.")
+            else:
+                messages.success(request, "Your post has been published successfully.")
+
             return redirect('post_detail', slug=post.slug)
     else:
         form = PostForm()
 
     return render(request, 'blog/post_form.html', {'form': form})
-
 
 
 
@@ -121,6 +140,7 @@ def post_create(request):
 
     return render(request, 'blog/post_edit.html', {'form': form, 'post': post})
 
+# edit Post
 def post_update(request, slug):
     post = get_object_or_404(Post, slug=slug)
 
@@ -130,7 +150,21 @@ def post_update(request, slug):
     if request.method == "POST":
         form = PostForm(request.POST, request.FILES, instance=post)
         if form.is_valid():
+            # Check if 'save_as_draft' button was pressed
+            if 'save_as_draft' in request.POST:
+                post.status = 0  # Set to Draft (0)
+            else:
+                post.status = 1  # Set to Published (1)
+
+            # Save the form and update the status
             form.save()
+
+            # Add a message for the user based on post status
+            if post.status == 0:
+                messages.info(request, "Your draft blog has been saved.")
+            else:
+                messages.success(request, "Your post has been published successfully.")
+
             return redirect(reverse('post_detail', kwargs={'slug': post.slug}))
     else:
         form = PostForm(instance=post)
@@ -140,18 +174,19 @@ def post_update(request, slug):
 
 @login_required
 def post_delete(request, slug):
-    post = Post.objects.filter(slug=slug).first()  # Avoid 404, return None instead
+    post = get_object_or_404(Post, slug=slug)
 
-    if not post:
-        messages.error(request, "❌ This post does not exist or has already been deleted.")
-        return redirect(reverse('post_detail'))  # Redirect user safely
+    # Ensure only the author can delete
+    if request.user != post.author:
+        messages.error(request, "You are not authorized to delete this post.")
+        return redirect("post_detail", slug=slug)
 
     if request.method == "POST":
         post.delete()
-        messages.success(request, "Subscribed to newsletter successfully!")
-        return redirect('welcome')  # Change to your desired redirect URL
+        messages.success(request, "Your post has been deleted.")
+        return redirect("home")
 
-    return redirect(reverse('post_detail', kwargs={'slug': slug}))
+    return render(request, "blog/post_confirm_delete.html", {"post": post})  # Explicit path
 
 
 # newletter and contact us
