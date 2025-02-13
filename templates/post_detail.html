@@ -15,7 +15,7 @@
             <div class="d-none d-md-block col-md-6 masthead-image">
                 <!-- The featured image URL goes in the src attribute -->
                 {% if "placeholder" in post.featured_image.url %}
-                <img src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg" width="100%">
+                <img src="{% static 'css/images/blog.webp' %}" class="scale" alt="Upload image">
                 {% else %}
                 <img src=" {{ post.featured_image.url }}" width="100%">
                 {% endif %}
@@ -33,7 +33,7 @@
                 <p class="card-text ">
                     {{ post.content | safe }}
                 </p>
-                {% if user.is_authenticated and user.is_superuser %}
+                {% if user.is_authenticated %}
                 <div class="d-flex justify-content-end mt-3">
                     <a href="{% url 'post_update' post.slug %}" class="btn btn-warning">Edit Post</a>
                     <a href="{% url 'post_delete' post.slug %}" class="btn btn-danger">Delete</a>
@@ -89,6 +89,8 @@
             <div class="card-body">
                 <!-- We want a for loop inside the empty control tags to iterate through each comment in comments -->
                 {% for comment in comments %}
+                <h1>USER: {{ user }} </h1>
+                AUTHOR: {{ comment.name }} 
                 <div class="comments" style="padding: 10px;">
                     <p class="font-weight-bold">
                         <!-- The commenter's name goes here. Check the model if you're not sure what that is -->
@@ -98,15 +100,16 @@
                             {{ comment.created_on }}
                         </span> wrote:
                     </p>
+                
                     <div id="comment{{ comment.id }}">
                     <!-- The body of the comment goes before the | -->
                     {{ comment.body | linebreaks }}
 
                 </div>
-                {% if not comment.approved and comment.author == user %}
+                {% if not comment.approved and comment.name == user.username %}
                 <p class="approval">This comment is awaiting approval</p>
                 {% endif %}
-                {% if user.is_authenticated and comment.author == user %}
+                {% if user.is_authenticated and comment.name == user.username %}
                 <button class="btn btn-delete" comment_id="{{ comment.id }}">Delete</button>
                 <button class="btn btn-edit" comment_id="{{ comment.id }}">Edit</button>
                 {% endif %}

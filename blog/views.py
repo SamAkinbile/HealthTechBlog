@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import generic, View
 from django.http import HttpResponseRedirect
-from .models import Post
+from .models import Post, Comment
 from .forms import CommentForm
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse
@@ -96,9 +96,6 @@ def post_create(request):
             post = form.save(commit=False)
             post.author = request.user
 
-            # Set the post's status to Draft (0) by default, or Published (1) if necessary
-            post.status = 1  # You can set this to 1 if you want to make the post published right away
-
             # Generate slug from title
             post.slug = slugify(post.title)
 
@@ -112,8 +109,8 @@ def post_create(request):
             # Save the post after ensuring unique slug
             post.save()
 
-            # Add a message for the user based on post status
-            if post.status == 0:
+            # Add a message if the post is a draft (status=2) or published (status=1)
+            if post.status == 2:
                 messages.info(request, "Your draft blog has been saved.")
             else:
                 messages.success(request, "Your post has been published successfully.")
@@ -123,6 +120,7 @@ def post_create(request):
         form = PostForm()
 
     return render(request, 'blog/post_form.html', {'form': form})
+
 
 
 
@@ -140,7 +138,6 @@ def post_create(request):
 
     return render(request, 'blog/post_edit.html', {'form': form, 'post': post})
 
-# edit Post
 def post_update(request, slug):
     post = get_object_or_404(Post, slug=slug)
 
@@ -150,21 +147,7 @@ def post_update(request, slug):
     if request.method == "POST":
         form = PostForm(request.POST, request.FILES, instance=post)
         if form.is_valid():
-            # Check if 'save_as_draft' button was pressed
-            if 'save_as_draft' in request.POST:
-                post.status = 0  # Set to Draft (0)
-            else:
-                post.status = 1  # Set to Published (1)
-
-            # Save the form and update the status
             form.save()
-
-            # Add a message for the user based on post status
-            if post.status == 0:
-                messages.info(request, "Your draft blog has been saved.")
-            else:
-                messages.success(request, "Your post has been published successfully.")
-
             return redirect(reverse('post_detail', kwargs={'slug': post.slug}))
     else:
         form = PostForm(instance=post)
@@ -223,16 +206,7 @@ def blog_home(request):
 
 def comment_edit(request, slug, comment_id):
     """
-    Display an individual comment for edit.
-
-    **Context**
-
-    ``post``
-        An instance of :model:`blog.Post`.
-    ``comment``
-        A single comment related to the post.
-    ``comment_form``
-        An instance of :form:`blog.CommentForm`
+    view to edit comments
     """
     if request.method == "POST":
 
@@ -248,11 +222,9 @@ def comment_edit(request, slug, comment_id):
             comment.save()
             messages.add_message(request, messages.SUCCESS, 'Comment Updated!')
         else:
-            messages.add_message(request, messages.ERROR,
-                                 'Error updating comment!')
+            messages.add_message(request, messages.ERROR, 'Error updating comment!')
 
     return HttpResponseRedirect(reverse('post_detail', args=[slug]))
-
 
 def comment_delete(request, slug, comment_id):
     """
@@ -277,3 +249,25 @@ def comment_delete(request, slug, comment_id):
                              'You can only delete your own comments!')
 
     return HttpResponseRedirect(reverse('post_detail', args=[slug]))
+
+def review_edit(request, event_id, review_id):
+    """
+    view to edit reviews
+    """
+    if request.method == "POST":
+
+        queryset = Event.objects.all()
+        event = get_object_or_404(queryset, pk=event_id)
+        review = get_object_or_404(Review, pk=review_id)
+        review_form = ReviewForm(data=request.POST, instance=review)  
+
+        if review_form.is_valid() and review.reviewer == request.user:
+            review = review_form.save(commit=False)
+            review.reviewer = request.user
+            review.event = event
+            review.save()
+            messages.add_message(request, messages.SUCCESS, 'Review Updated!')
+        else:
+            messages.add_message(request, messages.ERROR, 'Error updating Review!')
+
+    return HttpResponseRedirect(reverse('event_detail', args=[event_id]))
