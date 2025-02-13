@@ -124,36 +124,25 @@ def post_create(request):
 
 
 
- # Ensure only the superuser can edit
-    if not request.user.is_superuser:
+@login_required
+def post_update(request, slug):
+    post = get_object_or_404(Post, slug=slug)
+
+    # Ensure only the post's author can edit
+    if request.user != post.author:
+        messages.error(request, "You are not authorized to edit this post.")
         return redirect(reverse('post_detail', kwargs={'slug': slug}))  # Redirect if not allowed
 
     if request.method == "POST":
         form = PostForm(request.POST, request.FILES, instance=post)
         if form.is_valid():
             form.save()
+            messages.success(request, "Your post has been updated.")
             return redirect(reverse('post_detail', kwargs={'slug': post.slug}))  # Redirect to updated post
     else:
         form = PostForm(instance=post)  # Load existing data
 
     return render(request, 'blog/post_edit.html', {'form': form, 'post': post})
-
-def post_update(request, slug):
-    post = get_object_or_404(Post, slug=slug)
-
-    if not request.user.is_superuser:
-        return redirect(reverse('post_detail', kwargs={'slug': slug}))
-
-    if request.method == "POST":
-        form = PostForm(request.POST, request.FILES, instance=post)
-        if form.is_valid():
-            form.save()
-            return redirect(reverse('post_detail', kwargs={'slug': post.slug}))
-    else:
-        form = PostForm(instance=post)
-
-    return render(request, 'blog/post_edit.html', {'form': form, 'post': post})
-
 
 @login_required
 def post_delete(request, slug):
@@ -162,7 +151,7 @@ def post_delete(request, slug):
     # Ensure only the author can delete
     if request.user != post.author:
         messages.error(request, "You are not authorized to delete this post.")
-        return redirect("post_detail", slug=slug)
+        return redirect(reverse("post_detail", kwargs={'slug': slug}))
 
     if request.method == "POST":
         post.delete()
@@ -170,6 +159,7 @@ def post_delete(request, slug):
         return redirect("home")
 
     return render(request, "blog/post_confirm_delete.html", {"post": post})  # Explicit path
+
 
 
 # newletter and contact us
