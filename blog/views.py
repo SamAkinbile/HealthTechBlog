@@ -123,7 +123,6 @@ def post_create(request):
 
 
 
-
 @login_required
 def post_update(request, slug):
     post = get_object_or_404(Post, slug=slug)
@@ -205,7 +204,7 @@ def comment_edit(request, slug, comment_id):
         comment = get_object_or_404(Comment, pk=comment_id)
         comment_form = CommentForm(data=request.POST, instance=comment)
 
-        if comment_form.is_valid() and comment.author == request.user:
+        if comment_form.is_valid() and comment.name == request.user.username:
             comment = comment_form.save(commit=False)
             comment.post = post
             comment.approved = False
@@ -231,7 +230,7 @@ def comment_delete(request, slug, comment_id):
     post = get_object_or_404(queryset, slug=slug)
     comment = get_object_or_404(Comment, pk=comment_id)
 
-    if comment.author == request.user:
+    if comment.name == request.user.username:
         comment.delete()
         messages.add_message(request, messages.SUCCESS, 'Comment deleted!')
     else:
@@ -239,6 +238,8 @@ def comment_delete(request, slug, comment_id):
                              'You can only delete your own comments!')
 
     return HttpResponseRedirect(reverse('post_detail', args=[slug]))
+
+
 
 def review_edit(request, event_id, review_id):
     """

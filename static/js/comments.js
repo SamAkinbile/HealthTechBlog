@@ -17,11 +17,15 @@ const deleteConfirm = document.getElementById("deleteConfirm");
  * - Updates the submit button's text to "Update".
  * - Sets the form's action attribute to the `edit_comment/{commentId}` endpoint.
  */
+console.log('IN COMMENTS.JS')
 
 for (let button of editButtons) {
     button.addEventListener("click", (e) => {
+        console.log('IN BUTTON FOR LOOP')
         let commentId = e.target.getAttribute("data-comment_id");
+        console.log('commentId: ', commentId)
         let commentContent = document.getElementById(`comment${commentId}`).innerText;
+        console.log('commentContent: ', commentContent)
         commentText.value = commentContent;
         submitButton.innerText = "Update";
         commentForm.setAttribute("action", `edit_comment/${commentId}`);
@@ -45,3 +49,15 @@ for (let button of deleteButtons) {
         deleteModal.show();
     });
 }
+
+
+
+// for (let button of editButtons) {
+//     button.addEventListener("click", (e) => {
+//         let commentId = e.target.getAttribute("comment_id");
+//         let commentContent = document.getElementById(`comment${commentId}`).innerText;
+//         commentText.value = commentContent;
+//         submitButton.innerText = "Update";
+//         commentForm.setAttribute("action", `edit_comment/${commentId}`);
+//     });
+// }
