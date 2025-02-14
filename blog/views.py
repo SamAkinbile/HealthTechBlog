@@ -87,7 +87,6 @@ class PostLike(View):
 
 
 # add a blog 
-
 @login_required
 def post_create(request):
     if request.method == 'POST':
@@ -109,8 +108,8 @@ def post_create(request):
             # Save the post after ensuring unique slug
             post.save()
 
-            # Add a message if the post is a draft (status=2) or published (status=1)
-            if post.status == 2:
+            # Now post is saved, we can check status
+            if post.status == 1:
                 messages.info(request, "Your draft blog has been saved.")
             else:
                 messages.success(request, "Your post has been published successfully.")
@@ -120,7 +119,6 @@ def post_create(request):
         form = PostForm()
 
     return render(request, 'blog/post_form.html', {'form': form})
-
 
 
 @login_required

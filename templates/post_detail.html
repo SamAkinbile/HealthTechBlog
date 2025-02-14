@@ -33,7 +33,7 @@
                 <p class="card-text ">
                     {{ post.content | safe }}
                 </p>
-                {% if user.is_authenticated %}
+                {% if request.user == post.author %}
                 <div class="d-flex justify-content-end mt-3">
                     <a href="{% url 'post_update' post.slug %}" class="btn btn-warning">Edit Post</a>
                     <a href="{% url 'post_delete' post.slug %}" class="btn btn-danger">Delete</a>
