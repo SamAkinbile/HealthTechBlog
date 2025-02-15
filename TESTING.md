@@ -58,9 +58,9 @@ Python testing was done using CI Python Linter to ensure there were no syntax er
 
 I have used the recommended [CSS Jigsaw Validator](https://jigsaw.w3.org/css-validator) to validate all of my CSS files.
 
-|  File      | Jigsaw Screenshot                              |  Note
-|------------|------------------------------------------------|-------------------
-| style.css   | ![alt text](/media/image-5.png)                |  No error
+|  File      | Jigsaw Screenshot                                                         |  Note
+|------------|---------------------------------------------------------------------------|-------------------
+| style.css   | static/css/images/style.css_validating_no_error.png                      |  No error
                                                     
 
 

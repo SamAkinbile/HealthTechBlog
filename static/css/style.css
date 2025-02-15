@@ -179,3 +179,91 @@ body {
     transform: scale(0.95);
 }
 
+
+@media queries 
+
+/* Base styles (default for all devices) */
+body {
+    background-color: #F9FAFC;
+}
+
+.brand {
+    font-family: Lato, sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #4A4A4F;
+}
+
+/* Additional styles here... */
+
+/* Smartphones (portrait and landscape) */
+@media (max-width: 767px) {
+    .brand {
+        font-size: 1.2rem;
+    }
+
+    .masthead {
+        height: 25vh;
+    }
+
+    .post-title {
+        margin-top: 10%;
+        margin-left: 2%;
+    }
+
+    /* Additional adjustments here... */
+}
+
+/* Tablets (portrait and landscape) */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .brand {
+        font-size: 1.3rem;
+    }
+
+    .masthead {
+        height: 30vh;
+    }
+
+    .post-title {
+        margin-top: 15%;
+        margin-left: 3%;
+    }
+
+    /* Additional adjustments here... */
+}
+
+/* Laptops and Desktops */
+@media (min-width: 1025px) {
+    .brand {
+        font-size: 1.4rem;
+    }
+
+    .masthead {
+        height: 33vh;
+    }
+
+    .post-title {
+        margin-top: 20%;
+        margin-left: 5%;
+    }
+
+    /* Additional adjustments here... */
+}
+
+/* Large screens */
+@media (min-width: 1200px) {
+    .brand {
+        font-size: 1.5rem;
+    }
+
+    .masthead {
+        height: 35vh;
+    }
+
+    .post-title {
+        margin-top: 25%;
+        margin-left: 7%;
+    }
+
+    /* Additional adjustments here... */
+}
