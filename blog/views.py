@@ -19,10 +19,11 @@ class PostList(generic.ListView):
     paginate_by = 6
 
 
+
 class PostDetail(View):
 
     def get(self, request, slug, *args, **kwargs):
-        queryset = Post.objects.filter(status__in=[0, 1])
+        queryset = Post.objects.filter(status__in=[0, 1])  # Adjusted to include both published and draft posts
         post = get_object_or_404(queryset, slug=slug)
         comments = post.comments.filter(approved=True).order_by("-created_on")
         liked = False
@@ -40,10 +41,9 @@ class PostDetail(View):
                 "comment_form": CommentForm()
             },
         )
-    
-    def post(self, request, slug, *args, **kwargs):
 
-        queryset = Post.objects.filter(status=1)
+    def post(self, request, slug, *args, **kwargs):
+        queryset = Post.objects.filter(status__in=[0, 1])  # Adjusted to include both published and draft posts
         post = get_object_or_404(queryset, slug=slug)
         comments = post.comments.filter(approved=True).order_by("-created_on")
         liked = False
@@ -71,6 +71,7 @@ class PostDetail(View):
                 "liked": liked
             },
         )
+
 
 
 class PostLike(View):

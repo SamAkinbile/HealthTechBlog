@@ -118,55 +118,46 @@ For the blog, we've chosen to use the Lato font for branding elements, which pro
 <details>
  <summary>Home Page</summary>
 
-![alt text](/media/image-26.png)
+![alt text](image-3.png)
 </details>
 
 <details>
- <summary>Products</summary>
+ <summary>Blog Page</summary>
 
-![alt text](/media/image-27.png)
-
+![alt text](image-2.png)
 </details>
 
 
 <details>
- <summary>Checkout</summary>
+ <summary>Blog</summary>
 
-![alt text](/media/image-28.png)
+![alt text](image-4.png)
 </details>
 
 <details>
- <summary>Order Confirmation</summary>
+ <summaryAdd Add a Blog Post></summary>
 
-![alt text](/media/image-31.png)
+![alt text](image-5.png)
 </details>
 
 <details>
- <summary>Lego Testimonial</summary>
+ <summary>Log in Page</summary>
  
- ![lego_testimonial](/media/image-37.png)
+![alt text](image-6.png)
 </details>
+
+
 
 <details>
- <summary>Dashboard</summary>
+ <summary>Create a post management</summary>
 
-![alt text](/media/image-29.png)
+![alt text](image-7.png)
 </details>
-
-
 
 
 
 ## Agile Methodology
-Github projects was used to manage the development process using an agile approach. Please see link to project board [here](https://github.com/users/SamAkinbile/projects/3/views/1?visibleFields=%5B%22Title%22%2C%22Assignees%22%2C%22Status%22%2C%22Labels%22%5D&layout=board)
-
-
-The Epics listed above were documented within the Github project as Milestones. A Github Issue was created for each User Story which was then assisgn, label, . Each User Story has defined acceptance criteria to make it clear when the User Story has been completed. The acceptance criteria are further broken down into tasks to facilitate the User Story's execution.
-
-
-
-### Database Security
-The database url and secret key are stored in the env.py file to prevent unwanted connections to the database. Stripe keys and wh secret are also stored in the env.py file. 
+Github projects was used to manage the development process using an agile approach. Please see link to project board [here](https://github.com/users/SamAkinbile/projects/2/views/1)
 
 
 
@@ -175,7 +166,7 @@ The database url and secret key are stored in the env.py file to prevent unwante
 
 ### Header
 
-![hearder](/media/image-32.png)
+![alt text](image-8.png)
 
 **Logo**
 - A customised logo was created using Code Institute template.
@@ -185,88 +176,46 @@ The database url and secret key are stored in the env.py file to prevent unwante
 
 - The navigation bar is visible at the top of every page and includes links to the other pages.
 
-**Search Bar**
-
-![search](/media/image-33.png)
-
-- The search bar displays above the nav bar.
-- On smaller screens, this bar becomes a search icon which when clicked will drop down the full bar.
-- Any searched word will match itself to any text in the product's title, or description and display the results on the product's page.
+![alt text](image-9.png)
 
 
 **User Icon**
 
-- The User icon navigation link is a drop down menu which includes the Sign up and Log in links. 
-- Once a user has signed in, their username will display beside the user icon.
 - The options to Sign up or Log in will change to the option to log out once a user has logged in.
-- Once a user has signed in, the 'My Profile' option becomes available in the User dropdown.
 
-![Logged In](/media/image-34.png)
 
-- If the user has signed in, options such as 'profile' and 'logout/login' become available in the User dropdown.
-
-**Bag Icon**
-
-![bag](/media/image-35.png)
-
-- Located on the right side of the navbar next to the User icon is the bag Icon.
-- Once a product is added to the bag, a number displaying the total quantity of items appears, located at the top right of the bag icon.
-- As the user adds products to their bag, a toast message appears in the top right-hand corner of the screen informing the user that the item has been added, giving them a snapshot of the bag contents and the total cost of the bag.
-
-![bag total](/media/image-36.png)
-- Clicking the bag icon navigates the user to the shopping bag page which displays a summary of what's been added.
-
+![alt text](image-10.png)
 
 ### Home Page
 
-**Call to Action Section**
-![alt text](/media/image-41.png)
+![alt text](image-11.png)
 
-The LEGO-themed home page features an engaging call-to-action section, inviting users to "Shop Now" or explore "more legos action." This section is highlighted with the message "NEW SHOPS" alongside an image of a creatively styled LEGO, sparking inspiration and curiosity.
+The blog-themed home page showcases an engaging call-to-action section, encouraging visitors to "Read Now" or explore "More Blog Posts." This feature is emphasized with the bold announcement "NEW POSTS," paired with an image of a creatively designed blog layout, inspiring both curiosity and creativity.
 
 
 
 ### User Account Pages
 
-**Sign Up**
+**Register**
 
-![alt text](/media/image-38.png)
+![alt text](image-12.png)
 
 **Sign In**
 
+![alt text](image-13.png)
 
-![alt text](/media/image-39.png)
 
-**Log Out**
+**Sign Out**
 
-![alt text](/media/image-40.png)
+![alt text](image-14.png)
 
 - Django allauth was installed and used to create the Sign up, Log in and Log out functionality. 
 - Success messages inform the user if they have logged in/ logged out successfully.
-- When a user signs up for an account they must verify their email address by clicking on the authentication link emailed  to the address they provided.
-- If a user forgets their password they can reset it by clicking the 'Forgot Password' on the log in page.
 
 
-### Profile
-
-**Delivery Details**
-
-![alt text](/media/delivery_details.png)
-- The delivery details section stores the user's delivery address and phone number.
-- The information provided here is used to autofill the delivery address when placing an order.
-
-**Order History**
-
-![alt text](/media/order_history.png)
-
-- The order history section displays a list of every order the user has placed.
-- The table displays the order number, date it was ordered and the order total.
-- Clicking the order number will take the user to a summary page of that order.
-
-
-### All Product (Products)
+### Blog Main Page
  
-![alt text](/media/product_navbar.png)
+![alt text](static/css/images/home.png)
 
 - The 'All Product' link will display a list of all products from the database.
 - Clicking any of the categories will filter the products to only show products from the category selected.
@@ -275,7 +224,7 @@ The LEGO-themed home page features an engaging call-to-action section, inviting 
 
 ![alt text](/media/product_card.png)
 
-- Each product card shows an image of the product, its title, excerpt and price.
+- Each product card shows an image of the product, its title, excerpt and like, comment
 - The products page is fully responsive, adjusting how many products are on each row depending on the user's screen size.
 - A sort box is located on the products page where users can sort all products by price in ascending or descending order and by title (A-Z).
 
