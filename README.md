@@ -56,60 +56,62 @@ A visitor to Fresh Nest would be someone who is most likely an adult who is inte
 
 ### User Stories
 
-#### EPIC | Viewing and Navigation
-- As a Site User, I can intuitively navigate around the site so that I can find content.
-- As a Site User, I can view a list of products so that I can select a product to view.
-- As a shopper, I can view a specific category of products so I can browse the type of products I'm looking for.
-- As a shopper, I can search all products so that I can find what I am looking for.
-- As a shopper, I can sort all products so that I can view products based on price, age or title.
-- As a site user, I can view a list of LEGO product categories so I can understand what each category offers and choose the most suitable sets for my interests and skill level.
-- As a site user, I can read LEGO STORY left by other LEGO enthusiasts so I can see their feedback on the LEGO sets they purchased and their overall experience.
-- As a site user, I can view pictures of completed LEGO builds from other users so I can get inspired by their creations and build trust in the quality of the products offered.
+#### Post Management
+- Given I am logged in, when I visit the post creation page, then I should be able to create a new post with a title, content, and an image.
 
-#### EPIC | User Account and Profile
-- As a site user, I can register an account so that I can have a personal account.
-- As a site user, I can log in or log out of my account so that I can keep my account secure.
-- As a site user, I can see my login status so that I know if I'm logged in or out.
-- As a site user, I can save my personal details in my user profile so that I do not have to fill them out for future orders.
-- As a site user, I can view my order history so that I can remember what purchases I've made.
-- As a site user, I can recover my password in case I forget it so that I can recover access to my account.
+- Given I am logged in, when I create a post, then the slug should be generated from the title and should be unique.
 
-#### EPIC | Purchasing
-- As a shopper, I can add a number of products in different age group to my shopping bag so that I can purchase them all together when I am ready.
-- As a shopper, I can view a running total of my shopping bag as I am shopping so that I can see how much it costs in total.
-- As a shopper, I can view the contents of my shopping bag at any time so I can see what is included and the total cost.
-- As a shopper, I can adjust the quantity of individual products in my bag so that I can easily make changes before I purchase.
-- As a shopper, I can see a summary of my shopping cart when I checkout so that I know what products are included and the total cost before I commit to purchasing.
-- As a shopper, I can easily enter my payment information securely so that I can purchase my chosen products quickly with no issues.
-- As a shopper checkout as a guest so I don't have to sign up for an account.
-- As a shopper, I can view an order confirmation after checkout so that I know my purchase was successful.
-- As a shopper, I can receive an email confirmation of my order so that I have a record of my purchase.
+- Given I am logged in, when I visit my post's edit page, then I should be able to update the content, title, and image.
+
+- Given I am logged in, when I visit my post's detail page, then I should be able to delete my post if I am the author.
+
+#### Post Details and Comments
+- Given I am viewing a post, when I visit the post detail page, then I should be able to see the post content, approved comments, and a comment form.
+
+- Given I am logged in, when I submit a comment on a post, then my comment should be saved and appear after approval.
+
+- Given I am the author of a comment, when I visit the comment edit page, then I should be able to update my comment content.
+
+#### Like System
+- Given I am logged in, when I visit a post detail page, then I should be able to like or unlike the post.
 
 
-#### EPIC | Admin & Store Management
+#### Newsleter and Contact:
 - As a store owner, I can add products through an easy-to-use interface so that I can manage the store's contents.
 
 
 
 ### Design
 
-The site features an elegant and clean design, enhanced by subtle yellow-green background details that evoke a sense of luxury and sophistication.
+- Given I visit the newsletter subscription page, when I submit the subscription form, then I should receive a success message and be subscribed to the newsletter.
+
+- Given I visit the contact page, when I submit the contact form, then my message should be saved and I should receive a success message.
 
 #### Colour Scheme
 
-Colour palette from Coolors
-![alt text](/media/colour_pattern.png)
+Colour palette from Colors
+![alt text](static/css/images/image-2.png))
 
-The color scheme of the LEGO Emarket site is based on a balanced mix of gold, light grey, and dark grey. These colors are deliberately chosen to maintain a neutral yet engaging environment, allowing the LEGO sets and their details to take center stage without unnecessary distractions. Gold accents add a touch of elegance and luxury, evoking the joy and excitement that LEGO brings, while still staying true to the playful spirit of the brand.
-Light grey is used throughout the background to keep the design clean and modern, while dark grey provides a contrasting element for text and key sections, ensuring clear readability and balance.
+The color scheme of our blog is thoughtfully crafted using a balanced mix of gold, light grey, and dark grey. These colors are carefully selected to create a neutral yet engaging atmosphere, allowing the blog content and visuals to shine without distractions.
 
-Care was taken to establish a strong contrast between the background colors and text throughout the site, ensuring maximum user accessibility. The neutral tones create a user-friendly experience, allowing the LEGO products to shine while ensuring a smooth browsing experience for all visitors.
+- Gold Accents: Gold accents add a touch of elegance and luxury, evoking a sense of joy and excitement, while staying true to the playful spirit of our blog.
+
+- Light Grey Background: Light grey is used throughout the background to maintain a clean and modern design.
+
+- Dark Grey Elements: Dark grey is employed for text and key sections, ensuring clear readability and visual balance.
+
+We have prioritised strong contrast between the background colors and text to maximize user accessibility. This neutral color palette ensures a user-friendly experience, allowing the blog content to stand out while providing a smooth and enjoyable browsing experience for all visitors.
 
 #### Imagery
-The site features a prominent static image on the homepage showcasing an exciting and engaging LEGO set. The color scheme of the site, with its green and yellow tones, complements this main image, reflecting the vibrant, playful, and imaginative nature of LEGO building. These colors provide a lively and energetic feel, enhancing the overall experience for users.
+Our blog homepage features a prominent static image that showcases an exciting and engaging visual centerpiece. The color scheme of the site, with its vibrant green and yellow tones, perfectly complements this main image, reflecting the playful and imaginative nature of our content.
 
+- Green and Yellow Tones: These colors bring a lively and energetic feel to the site, enhancing the overall user experience.
+
+- Vibrant and Playful: The chosen color scheme reflects the playful and imaginative spirit of our blog, creating an inviting and dynamic environment for our visitors.
+
+By harmonising the main image with the color scheme, we ensure that our blog not only looks appealing but also provides an enjoyable and engaging experience for all users. Our thoughtful design choices help to highlight the creativity and excitement that our content offers
 #### Fonts
-The primary font used for the body of the LEGO Emarket site is Roboto, a versatile and modern sans-serif font that ensures optimal readability and a smooth browsing experience. This font was imported via Google Fonts to guarantee consistent appearance across different devices.
+For the blog, we've chosen to use the Lato font for branding elements, which provides a modern and clean look. Additionally, the Roboto font is used for the body text to ensure optimal readability and a smooth browsing experience. Both fonts are imported via Google Fonts to guarantee a consistent appearance across various devices.
 
 #### Wireframes
 
