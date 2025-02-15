@@ -7,7 +7,7 @@ Welcome to our HealthTech Blog, your go-to source for the latest innovations and
 
 The live link can be found here - [HealthTech](https://healthtechblog-5cf577763b3c.herokuapp.com/)
 
-(![alt text](image-20.png))
+![alt text](static/css/images/image-20.png)
 
   * [User Stories](#user-stories)
     + [Post Management](#post-management)
@@ -77,7 +77,7 @@ The live link can be found here - [HealthTech](https://healthtechblog-5cf577763b
 #### Colour Scheme
 
 Colour palette from Colors
-![alt text](static/css/images/image-2.png))
+![alt text](static/css/images/colour_scheme.png) 
 
 The color scheme of our blog is thoughtfully crafted using a balanced mix of gold, light grey, and dark grey. These colors are carefully selected to create a neutral yet engaging atmosphere, allowing the blog content and visuals to shine without distractions.
 
@@ -105,32 +105,32 @@ For the blog, we've chosen to use the Lato font for branding elements, which pro
 <details>
  <summary>Home Page</summary>
 
-![alt text](image-3.png)
+![alt text](static/css/images/image-3.png)
 </details>
 
 <details>
  <summary>Blog Page</summary>
 
-![alt text](image-2.png)
+![alt text](static/css/images/image-2.png)
 </details>
 
 
 <details>
  <summary>Blog</summary>
 
-![alt text](image-4.png)
+![alt text](static/css/images/image-4.png)
 </details>
 
 <details>
  <summaryAdd Add a Blog Post></summary>
 
-![alt text](image-5.png)
+![alt text](static/css/images/image-5.png)
 </details>
 
 <details>
  <summary>Log in Page</summary>
  
-![alt text](image-6.png)
+![alt text](static/css/images/image-6.png)
 </details>
 
 
@@ -138,7 +138,7 @@ For the blog, we've chosen to use the Lato font for branding elements, which pro
 <details>
  <summary>Create a post management</summary>
 
-![alt text](image-7.png)
+![alt text](static/css/images/image-7.png)
 </details>
 
 
@@ -153,7 +153,7 @@ Github projects was used to manage the development process using an agile approa
 
 ### Header
 
-![alt text](image-8.png)
+![alt text](static/css/images/image-8.png)
 
 **Logo**
 - A customised logo was created using Code Institute template.
@@ -163,7 +163,7 @@ Github projects was used to manage the development process using an agile approa
 
 - The navigation bar is visible at the top of every page and includes links to the other pages.
 
-![alt text](image-9.png)
+![alt text](static/css/images/image-9.png)
 
 
 **User Icon**
@@ -171,11 +171,11 @@ Github projects was used to manage the development process using an agile approa
 - The options to Sign up or Log in will change to the option to log out once a user has logged in.
 
 
-![alt text](image-10.png)
+![alt text](static/css/images/image-10.png)
 
 ### Home Page
 
-![alt text](image-11.png)
+![alt text](static/css/images/image-11.png)
 
 The blog-themed home page showcases an engaging call-to-action section, encouraging visitors to "Read Now" or explore "More Blog Posts." This feature is emphasized with the bold announcement "NEW POSTS," paired with an image of a creatively designed blog layout, inspiring both curiosity and creativity.
 
@@ -185,16 +185,16 @@ The blog-themed home page showcases an engaging call-to-action section, encourag
 
 **Register**
 
-![alt text](image-12.png)
+![alt text](static/css/images/image-12.png)
 
 **Sign In**
 
-![alt text](image-13.png)
+![alt text](static/css/images/image-13.png)
 
 
 **Sign Out**
 
-![alt text](image-14.png)
+![alt text](static/css/images/image-14.png)
 
 - Django allauth was installed and used to create the Sign up, Log in and Log out functionality. 
 - Success messages inform the user if they have logged in/ logged out successfully.
@@ -206,19 +206,19 @@ The blog-themed home page showcases an engaging call-to-action section, encourag
 
 - The 'Blog Main Page' link will display a list of all blog post from the database.
 
-![alt text](image-15.png)
+![alt text](static/css/images/image-15.png)
 
 - Each blog shows an image of the product, its title, excerpt,like, comment and edit and delete for logged in user
 
 
 
 **Edit|Delete button for Blog post**
-![alt text](image-16.png)
+![alt text](static/css/images/image-16.png)
 
 Edit|Delete button for post added. This gives opporturnity for a logged in user to edit, delete, thier blog post.
 
 **Edit|Delete button for comment**
-![alt text](image-17.png)
+![alt text](static/css/images/image-17.png)
 
 Edit|Delete button for post added. This gives opporturnity for a logged in user to edit, delete, thier comment post.
 
@@ -226,10 +226,10 @@ Edit|Delete button for post added. This gives opporturnity for a logged in user 
 
 **Confirmation**
 
-![alt text](image-18.png)
+![alt text](static/css/images/image-18.png)
 - confirmation if aboiut to delete a blog post
 
-![alt text](image-19.png)
+![alt text](static/css/images/image-19.png)
 - Confirmation if about to delete a comment post
 
 
