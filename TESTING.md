@@ -24,16 +24,16 @@ Return back to the [README.md](README.md) file.
 
 I have used the recommended [HTML W3C Validator](https://validator.w3.org/nu/#textarea) to validate all of my HTML files.Unforturnately, The errors contain in this project comes from walkthrough boutique - ado . I am not able to fix it. I do not have the expertise to do it.
 
-| Page             |    W3C Screnshots                                    |             
-| -----------------|------------------------------------------------------|
-| Home             |  ![alt text](/media/image-1.png)                     |
-| Lego Testimonial |  ![alt text](/media/image-1.png)                     |            
-| Other Toys       |  ![alt text](/media/image-1.png)                     |
-| Legos            |  ![alt text](/media/image-1.png)                     |
-| All Product      |  ![alt text](/media/image-1.png)                     |
-| Buidling Toys    |  ![alt text](/media/image-1.png)                     |
-| Sports Toys      |  ![alt text](/media/image-1.png)                     |
-| Cart             |  ![alt text](/media/image-1.png)                     |
+| Page             |    W3C Screnshots                                                             |             
+| -----------------|-------------------------------------------------------------------------------|
+| Welcome Page     |  ![alt text](static/css/images/w3c_validation.png)                            |
+| Blog Main Page   |  ![alt text](static/css/images/w3c_validation.png)                            |            
+| Blog Page        | ![alt text](static/css/images/w3c_validation.png)                             |
+| Sign in Page     | ![alt text](static/css/images/w3c_validation.png)                             |
+| Sign up Page     | ![alt text](static/css/images/w3c_validation.png)                             |
+| Add a Blog post  |  ![alt text](static/css/images/w3c_validation.png)                            |
+| Edit Blog        |  ![alt text](static/css/images/w3c_validation.png)                            |
+
 
 
 
@@ -60,9 +60,8 @@ I have used the recommended [CSS Jigsaw Validator](https://jigsaw.w3.org/css-val
 
 |  File      | Jigsaw Screenshot                              |  Note
 |------------|------------------------------------------------|-------------------
-| Base.css   | ![alt text](/media/image-5.png)                |  No error
-| profile.css| ![alt text](/media/image-3.png)                |  No error                                                    
-|            |                                                |
+| style.css   | ![alt text](/media/image-5.png)                |  No error
+                                                    
 
 
 ## Responsiveness
