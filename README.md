@@ -41,6 +41,116 @@ The live link can be found here - [HealthTech](https://healthtechblog-5cf577763b
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
 
+### Project Board
+
+
+| **To Do**                     | **In Progress**               | **Testing**                  | **Done**                      |
+|-------------------------------|-------------------------------|------------------------------|-------------------------------|
+| **Post Management**           |                               |                              |                               |
+| - Add draft post functionality| - Implement post creation     | - Test post creation         | - Post creation implemented   |
+| - Add post status toggle      | - Implement post editing      | - Test post editing          | - Post editing implemented    |
+| - Add post deletion           | - Implement post deletion     | - Test post deletion         | - Post deletion implemented   |
+| **Post Details and Comments** |                               |                              |                               |
+| - Add comment approval        | - Implement comment system    | - Test comment functionality | - Comment system implemented  |
+| - Add comment editing         | - Implement comment editing   | - Test comment editing       | - Comment editing implemented |
+| - Add comment deletion        | - Implement comment deletion  | - Test comment deletion      | - Comment deletion implemented|
+| **Like System**               |                               |                              |                               |
+| - Add like/unlike feature     | - Implement like/unlike       | - Test like/unlike feature   | - Like/unlike implemented     |
+| **Newsletter and Contact**    |                               |                              |                               |
+| - Add newsletter subscription | - Implement newsletter form   | - Test newsletter form       | - Newsletter form implemented |
+| - Add contact form            | - Implement contact form      | - Test contact form          | - Contact form implemented    |
+| **Design**                    |                               |                              |                               |
+| - Finalize color scheme       | - Add imagery to homepage     | - Test responsiveness        | - readme  & testing      |
+| - Add fonts (Lato)    |                               |                              |                               |
+| **Deployment**                |                               |                              |                               |
+| - Set up PostgreSQL database  | - Deploy to Heroku            | - Test deployed app          | - Initial deployment done     |
+
+---
+
+### **Detailed Task Breakdown**
+
+#### **Post Management**
+- **To Do**:
+  - Add draft BLOG post functionality.
+  - Add blog post status toggle (draft/published).
+  - Add blog post deletion confirmation.
+- **In Progress**:
+  - Implement post creation (`post_create` view).
+  - Implement post editing (`post_update` view).
+  - Implement post deletion (`post_delete` view).
+- **Testing**:
+  - Test post creation, editing, and deletion.
+- **Done**:
+  - Post creation, editing, and deletion functionality implemented.
+
+#### **Post Details and Comments**
+- **To Do**:
+  - Add comment approval functionality.
+  - Add comment editing functionality.
+  - Add comment deletion functionality.
+- **In Progress**:
+  - Implement comment system (`PostDetail` view).
+  - Implement comment editing (`comment_edit` view).
+  - Implement comment deletion (`comment_delete` view).
+- **Testing**:
+  - Test comment submission, approval, editing, and deletion.
+- **Done**:
+  - Comment system implemented.
+
+#### **Like System**
+- **To Do**:
+  - Add like/unlike feature.
+- **In Progress**:
+  - Implement like/unlike functionality (`PostLike` view).
+- **Testing**:
+  - Test like/unlike functionality.
+- **Done**:
+  - Like/unlike feature implemented.
+
+#### **Newsletter and Contact**
+- **To Do**:
+  - Add newsletter subscription form.
+  - Add contact form.
+- **In Progress**:
+  - Implement newsletter form (`newsletter_subscription` view).
+  - Implement contact form (`contact` view).
+- **Testing**:
+  - Test newsletter subscription and contact form submission.
+- **Done**:
+  - Newsletter and contact forms implemented.
+
+#### **Design**
+- **To Do**:
+  - Finalise color scheme (gold, light grey, dark grey).
+  - Add fonts (Lato for branding ).
+- **In Progress**:
+  - Add imagery to homepage.
+- **Testing**:
+  - Test responsiveness on different devices.
+- **Done**:
+  - README & TESTING completed.
+
+#### **Deployment**
+- **To Do**:
+  - Set up PostgreSQL database.
+- **In Progress**:
+  - Deploy to Heroku.
+- **Testing**:
+  - Test deployed app for functionality and performance.
+- **Done**:
+  - Initial deployment completed.
+
+### **Example of Task Assignment**
+| **Task**                      | **Assigned To** | **Deadline** | **Status**   |
+|-------------------------------|-----------------|--------------|--------------|
+| Implement post creation       | Myself          | 2023-02-09   | Done         |
+| Test comment functionality    | Myself           | 2025-02-10   | Done         |
+| Add like/unlike feature       | Myself           | 2025-02-11   | Done         |
+| README & TESTING completed    | Myself          | 2025-02-28   | Done         |
+
+
+
+
 ### User Stories
 
 #### Post Management
@@ -101,6 +211,59 @@ By harmonising the main image with the color scheme, we ensure that our blog not
 For the blog, we've chosen to use the Lato font for branding elements, which provides a modern and clean look. Additionally, the Roboto font is used for the body text to ensure optimal readability and a smooth browsing experience. Both fonts are imported via Google Fonts to guarantee a consistent appearance across various devices.
 
 #### Wireframes
+
+![alt text](<wireframe - blog post.webp>)
+
++---------------------------------------------------+
+|                  Blog Title / Logo               |
+|---------------------------------------------------|
+| Home | About | Blog | Categories | Contact       |
++---------------------------------------------------+
+
+### [ Home Page ]
+-------------------------------------
+| - Featured Post                                  |
+| - Blog Posts List (Paginated)                    |
+|   - [Post 1] [Post 2] [Post 3]                   |
+|   - [Post 4] [Post 5] [Post 6]                   |
+-------------------------------------
+
+### [ Post Detail Page ]
+-------------------------------------
+| - Post Title | Author | Date | ❤️ Like Button   |
+| - Post Content + Image                           |
+| - Comments Section                               |
+|   - [User1: Comment] [Edit] [Delete]            |
+|   - [User2: Comment]                             |
+|   - [Add Comment] [Submit]                       |
+-------------------------------------
+
+### [ Create/Edit Post ]
+-------------------------------------
+| - Title Input                                    |
+| - Content Text Area                              |
+| - Image Upload                                   |
+| - [Submit] [Save as Draft]                      |
+-------------------------------------
+
+### [ Delete Post ]
+-------------------------------------
+| Are you sure you want to delete this post?      |
+| - [Yes, Delete] [Cancel]                        |
+-------------------------------------
+
+### [ Newsletter Subscription ]
+-------------------------------------
+| - Email Input [Subscribe]                        |
+-------------------------------------
+
+### [ Contact Page ]
+-------------------------------------
+| - Name, Email, Message Form                      |
+| - [Submit]                                       |
+-------------------------------------
+
+## Wireframes photo 
 
 <details>
  <summary>Home Page</summary>
@@ -366,6 +529,7 @@ To clone this repository follow the below steps:
 - [Stack Overflow](https://stackoverflow.com/questions/19619428/html5-form-validation-pattern-alphanumeric-with-spaces): To prevent form being submitted with whitespace
 
 
+
 ## Acknowledgments
 
-Many thanks to Code institute Tutoring service for her support and advice. Thanks to The Code Institute slack community.
+Many thanks to Code institute Tutoring service for support and advice. Thanks to The Code Institute slack community.
