@@ -187,6 +187,7 @@ The live link can be found here - [HealthTech](https://healthtechblog-5cf577763b
 #### Colour Scheme
 
 Colour palette from Colors
+
 ![alt text](static/css/images/colour_scheme.png) 
 
 The color scheme of our blog is thoughtfully crafted using a balanced mix of gold, light grey, and dark grey. These colors are carefully selected to create a neutral yet engaging atmosphere, allowing the blog content and visuals to shine without distractions.

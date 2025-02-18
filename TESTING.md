@@ -100,40 +100,36 @@ The Website was tested on Google Chrome, Firefox, Safari browsers with no issues
 
 
 
+
+
+
 ## NavBar, NavLinks, NavButtons 
 
-| Tested Item | Expected Outcome                                      | Outcome     |
-| ----------- | ----------------------------------------------------- | ----------- |
-| Home        | Clickable,                                            | as expected |
-| NavLink     | Opens Home page,                                      | as expected |
-|             | Or refreshes it if user is already on Home page,      | as expected |
-|             | Color of Home NavLink darkens once it's selected,     | as expected |
-|             | Opens in the current tab                              | as expected |         
+| Tested Item | Expected Outcome                                      | Outcome     |                                           |
+| ----------- | ----------------------------------------------------- | ----------- |-------------------------------------------|
+| Home        | Clickable, HealthTeah                                 | as expected | ![alt text](static/css/images/image-8.png)|
+| NavLink     | Opens Home page,                                      | as expected |                                           |
+|             | Or refreshes it if user is already on Home page,      | as expected |                                           |
+|             | Color of Welcome page NavLink darkens                 | as expected |                                           |
+|             | once it's selected,Opens in the current tab           | as expected |                                           |
+|Communication| Clickable,                                            | asexpected |                                            |
+| NavLink     | A dropdown nav: contact us, newsletter,               | as expected | ![alt text](logged1.png)                  |
+|             | add a blog post                                       | as expected |                                           |
+|             |                                                       | as expected |                                           |
+|             |                                                       | as expected |                                           |
+|             |                                                       |             |                                           |
+| Log  In     | Clickable,                                            | as expected |                                           |
+| NavLink     | Visible only when user is not logged In,              | as expected |                                           |
+|             | Opens up a log In form,                               | as expected | ![alt text](loggedin.png)                 |
+|             | which shows an option to Sign Up if no account,       | as expected |                                           |
+|             | Color of Sign In NavLink darkens once it's selected,  | as expected |                                           |
+|             | Once logged in, logged Out replaces Sign In on NavBar,| as expected |                                           |
+|             | Message appears "Successfully signed in as (username)"| as expected |                                           |
+|             | logged in as (username) appears on the right side,    | as expected |
+|             | And is visible on all pages while user is signed in,  | as expected |
+|             | Sign Up option is visible if not signed in.           | as expected |
 |             |                                                       |             |
-| About       | Clickable,                                            | as expected |
-| NavLink     | Opens About page,                                     | as expected |
-|             | Or refreshes it if user is already on About page,     | as expected |
-|             | Color of About NavLink darkens once it's selected,    | as expected |
-|             | Opens in the current tab                              | as expected | 
-|             |                                                       |             |
-| Resources   | Clickable,                                            | as expected |
-| NavLink     | Opens Resources page,                                 | as expected |
-|             | Or refreshes it if user is already on Resources page, | as expected |
-|             | Color of Resources NavLink darkens once it's selected,| as expected |
-|             | Opens in the current tab                              | as expected | 
-|             |                                                       |             |
-| Sign In     | Clickable,                                            | as expected |
-| NavLink     | Visible only when user is not Signed In,              | as expected |
-|             | Opens up a Sign In form,                              | as expected |
-|             | which shows an option to Sign Up if no account,       | as expected | 
-|             | Color of Sign In NavLink darkens once it's selected,  | as expected |
-|             | Once logged in, Sign Out replaces Sign In on NavBar,  | as expected |
-|             | Message appears "Successfully signed in as (username)"| as expected |
-|             | Signed in as (username) appears on the right side,    | as expected |
-|             | And is visible on all Pages while user is signed in,  | as expected |
-|             | Sign Up option is visible if not signed in            | as expected |
-|             |                                                       |             |
-| Sign Out    | Sign Out is visible only when user is Signed In,      | as expected |
+| Sign Out    | Logged Out is visible only when user is Signed In,    | as expected |
 | NavLink     | Color of Sign Out NavLink darkens once it's selected, | as expected |
 |             | Opens in the current tab,                             | as expected | 
 |             | Sign Out form Opens with an option to Sign Out,       | as expected |
@@ -142,14 +138,10 @@ The Website was tested on Google Chrome, Firefox, Safari browsers with no issues
 |             | Sign Out option remains on the page,                  | as expected |
 |             | for the user until Sign Out button is clicked,        |             |
 |             | after which message pops up: "You have signed out.",  | as expected |
-|             | And Sign In option appears instead of Sign Out,       | as expected |
+|             | And Log In option appears instead of Log Out,         | as expected |
 |             | And now on the right side can see "Not signed in",    | as expected |
 |             | And Sign Up option is now available in NavBar         | as expected |
 |             |                                                       |             |
-| Logo        | Clickable,                                            | as expected |
-|             | Opens Home page,                                      | as expected |
-|             | Or refreshes Home page if user is already on Home page| as expected |
-|             | Opens in the current tab                              | as expected | 
 |             |                                                       |             |
 | NEXT >>     | Visible only on Home page (accessed via               | as expected |
 |             | Home page or Logo),                                   |             |
@@ -166,117 +158,86 @@ The Website was tested on Google Chrome, Firefox, Safari browsers with no issues
 |             | << PREV is replaced by NEXT >> on the first Home page | as expected |
 |             |                                                       |             |
 | NavBar Text | Not Clickable,                                        | as expected |
-|             | sharing beautiful moments remains the same,           | as expected |
+|             | Health is Wealth,                                     | as expected |
 |             | Visible in top right corner on all pages              | as expected |
+
+
+
+### Communications Dropdown Menu
+
+ **Tested Item**               | **Expected Outcome**                          | **Outcome**     |
+|--------------------------------|----------------------------------------------|-----------------|
+| **Dropdown Menu**              |                                              |                 |
+| Dropdown Toggle                | Clickable, opens dropdown menu               | as expected     |
+| Dropdown Items                 | All items visible when toggled               | as expected     |
+| **Contact Us Link**            |                                              |                 |
+| Contact Us Link                | Clickable, opens Contact Us page             | as expected     |
+| Contact Us Form                | Displays form for inquiries                  | as expected     |
+| Form Submission                | Submits with valid input                     | as expected     |
+| Form Validation                | Displays errors for invalid inputs           | as expected     |
+| **Subscribe to Newsletter Link**|                                              |                 |
+| Newsletter Link                | Clickable, opens Newsletter page             | as expected     |
+| Newsletter Form                | Displays form for subscription               | as expected     |
+| Form Submission                | Submits with valid email                     | as expected     |
+| Form Validation                | Displays errors for invalid inputs           | as expected     |
+| **Add a Blog Link**            |                                              |                 |
+| Add a Blog Link                | Clickable, opens Blog Creation page          | as expected     |
+| Add a Blog Form                | Displays form for blog creation              | as expected     |
+| Form Submission                | Submits with valid input                     | as expected     |
+| Form Validation                | Displays errors for invalid inputs           | as expected     |
 
 
 ## Blog Posts, Comments, Edit and Delete Options, Approving of Comments
 
 | Tested Item | Expected Outcome                                      | Outcome         |
-| ----------- | ----------------------------------------------------- | --------------  |
+| ----------- | ----------------------------------------------------- | --------------- |
+| **Blog Post** |                                                       |                 |
 | Blog Post   | Clickable Blog Post title,                            | as expected     |
 |             | Opens in a new tab,                                   | as expected     |
 |             | Title, author, time of creation are visible,          | as expected     |
 |             | Blog Posts text is visible and clear,                 | as expected     |
-|             | Full Image of the blog post is visible                | not as expected |
+|             | Full Image of the blog post is visible                | depend on screen|
 |             | beside the title, on different screen sizes,          |                 |
-|             | Image of the blog post is visible on different        | not as expected |
+|             | Image of the blog post is visible on different        | depend on screen|
 |             | screen sizes,                                         |                 |
 |             |                                                       |                 |
+| **Comment** |                                                       |                 |
 | Comment     | Clickable,                                            | as expected     |
+|             | Comment form is visible for logged-in users,          | as expected     |
+|             | Comment form is hidden for logged-out users,          | as expected     |
+|             | Comments display author name, date, and content,      | as expected     |
+|             | Unapproved comments show "awaiting approval" message, | as expected     |
+|             | Approved comments are visible to all users,           | as expected     |
+|             |                                                       |                 |
+| **Edit and Delete Options (Comments)** |                                                       |                 |
+| Edit Button | Visible only to comment author,                       | as expected     |
+|             | Clickable, opens edit form,                           | as expected     |
+|             | Saves changes after editing,                          | as expected     |
+| Delete Button | Visible only to comment author,                       | as expected     |
+|             | Clickable, deletes comment after confirmation,        | as expected     |
+|             |                                                       |                 |
+| **Edit and Delete Options (Blog Posts)** |                                                       |                 |
+| Edit Button | Visible only to blog post author or admin,            | as expected     |
+|             | Clickable, opens edit form,                           | as expected     |
+|             | Saves changes after editing,                          | as expected     |
+| Delete Button | Visible only to blog post author or admin,            | as expected     |
+|             | Clickable, deletes blog post after confirmation,      | as expected     |
+|             |                                                       |                 |
+| **Approving of Comments** |                                                       |                 |
+| Admin Approval | Admin can approve comments from the admin panel,      | as expected     |
+|             | Approved comments are visible on the blog post,       | as expected     |
+|             | Unapproved comments are hidden from public view,      | as expected     |
+
+---
 
 
-## About Page, Collaboration Form
+- **Blog Post Image:** Depend on the screen sizes.
+- **Comment Form:** No issues detected.
+- **Edit/Delete Options (Comments):** No issues detected.
+- **Edit/Delete Options (Blog Posts):** No issues detected.
+- **Approving Comments:** No issues detected.
 
-| Tested Item | Expected Outcome                                                  | Outcome     |
-| ----------- | ----------------------------------------------------------------- | ----------- |
-| About       | About page opens when About is clicked on in the NavBar,          | as expected |
-| Page        | Page available when Signed in or not Signed in,                   | as expected |
-|             | Admin can access via NavBar and via Django.                       | as expected |
-|             |                                                                   |             |
-|             | NavLink About in the NavBar darkens to show user is on About page,| as expected |
-|             | NavText remains in the top right corner,                          | as expected |
-|             | Top right corner, below NavText, user can see if Signed in        | as expected |
-|             | or signed out                                                     | as expected |
-|             |                                                                   |             |
-| Image       | Default image is displayed on the left side or                    | as expected |
-|             | above the text (if smaller screen size),                          | as expected |
-|             | only Developer can add/edit/change/delete Images on About page,   | as expected |
-|             |                                                                   |             |
-| Text        | Developer's view on what this website/project is about,           | as expected |
-|             | disclaimer Collaboration Forms won't be replied to,               | as expected |
-|             | only Developer can add/edit/delete About page text,               | as expected |
-|             | date and time of the update of the text are on the right,         | as expected |
-|             | below the text about the website                                  | as expected |
-|             |                                                                   |             |
-| Form        | Collaboration Form is part of About page,                         | as expected |
-|             | located below text about the website,                             | as expected |
-|             | Visitor might need to scroll to see the form,                     | as expected |
-|             | Form is accessable when Signed in,                                | as expected |
-|             | and when not Signed in.                                           | as expected |
-|             |                                                                   |             |
-| Name        | Name field is part of the Collaboration form,                     | as expected |
-| field       | Visitor can type in Name* field,                                  | as expected |
-|             | Name field is mandatory if visitor wants to submit form,          | as expected |
-|             | Name field is marked with an asterisk to show it's mandatory,     | as expected |
-|             | pop up appears if trying to submit without name:                  | as expected |
-|             | "Please fill in this field",                                      | as expected |
-|             |                                                                   |             |
-| Email       | Email field is part of the Collaboration form,                    | as expected |
-| field       | Visitor can type in Email* field,                                 | as expected |
-|             | Email field is mandatory if want to submit form,                  | as expected |
-|             | Email field is marked with an asterisk to show it's mandatory,    | as expected |
-|             | pop up appears if trying to submit without email:                 | as expected |
-|             | "Please fill in this field",                                      | as expected |
-|             | pop up appears if no text before '@' in the email:                | as expected |
-|             | "Please enter a part followed by '@'. '@...' is incomplete"       | as expected |
-|             | pop up appears when no '@' in the email:                          | as expected |
-|             | "Please include an '@' in the email...",                          | as expected |
-|             | pop up appears if no text after '@' in the email:                 | as expected |
-|             | "Please enter a part following '@'. '...@' is incomplete"         | as expected |
-|             |                                                                   |             |
-| Message     | Message field is part of the Collaboration Form,                  | as expected |
-| field       | Visitor can type in Message* field,                               | as expected |
-|             | Message field is mandatory if want to submit form,                | as expected |
-|             | Message fiels is marked with an asterisk, to show it's mandatory  | as expected |
-|             | pop up appears if trying to submit without message:               | as expected |
-|             | "Please fill in this field"                                       | as expected |
-|             |                                                                   |             |
-| Submit Here | 'Submit Here' button is accessible below the Collaboration Form.  | as expected |
-| button      | Visitor can click on 'Submit Here' button.                        | as expected |
-|             | If Name, Email and Message fields have text in them,              |             |
-|             | and Email matches all required aspects                            | as expected |
-|             | then Collaboration Form is submitted once 'Submit Here' is clicked| as expected |
-|             | and pop up appears:                                               | as expected |
-|             | "Collaboration Form received. Reviewed within 48 hours."          | as expected |
-|             | If form is not filled as requested,                               |             |
-|             | pop up would appear, after visitor clicks on 'Submit Here',       | as expected |
-|             | informing visitor to adjust the field,                            |             |
-|             | that is not filled as required                                    | as expected |
 
-## Resources page
-
-| Tested Item | Expected Outcome                                      | Outcome     |
-| ----------- | ----------------------------------------------------- | ----------- |
-|             | Logo, NavLinks, NavText displayed on top of the page, | as expected |
-|             | Signed in or Not Signed in displayed on the right     | as expected |
-|             | Resources NavLink is darkened,                        | as expected |
-|             | to show visitor which page they are on                |             |
-|             |                                                       |             |
-|             | Titles of various links are displayed on the page.    | as expected |
-|             | Links to each Resource are displayed,                 | as expected |
-|             | links are clickable.                                  | as expected |
-|             | On the click, selected link opens in a new tab,       | as expected |
-|             | in YouTube,                                           | as expected |
-|             | Resources page remains open in a previous tab,        | as expected |
-|             | If visitor has YouTube subcsription,                  | as expected |
-|             | link content starts on YouTube after link is clicked, | as expected |
-|             | if visitor has no YouTube subscription,               | as expected |
-|             | random ad chosen by YouTube may play first,           | as expected |
-|             | which is out of Developer's expertise                 | as expected |
-|             |                                                       |             |
-|             | Note on the right below links,                        | as expected |
-|             | stating Resources added by Site's admin               | as expected |
 
 
 ## Sign Up page
