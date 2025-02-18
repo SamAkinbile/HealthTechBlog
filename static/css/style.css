@@ -149,7 +149,7 @@ body {
 	top: 0;
 	left: 0;
 	position: absolute;
-	background:#23BBBB;
+	background:  #F9FAFC;
     padding-top:100px;
 	z-index: -1;
 }
@@ -180,12 +180,15 @@ body {
 }
 
 
-@media queries 
 
 /* Base styles (default for all devices) */
+
+
 body {
     background-color: #F9FAFC;
 }
+
+
 
 .brand {
     font-family: Lato, sans-serif;

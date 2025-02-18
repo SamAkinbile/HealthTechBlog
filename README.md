@@ -529,7 +529,7 @@ To clone this repository follow the below steps:
 - [Code Institute - Codestar Walkthrough Project](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+FSD101_WTS+5/courseware/713441aba05441dfb3a7cf04f3268b3f/824fccecd0fe4e44871eeabcbf69d830/)
 - [Stack Overflow](https://stackoverflow.com/questions/19619428/html5-form-validation-pattern-alphanumeric-with-spaces): To prevent form being submitted with whitespace
 
-
+### Find testing here[text](TESTING.md)
 
 ## Acknowledgments
 

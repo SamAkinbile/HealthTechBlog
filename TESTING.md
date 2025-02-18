@@ -42,15 +42,9 @@ Python testing was done using CI Python Linter to ensure there were no syntax er
 
 | App           |        Screenshots                                     |                |
 |---------------|--------------------------------------------------------|----------------|
-|  Bag          | ![alt text](/media/python.png)                         | No error       |
-|  Blog         | ![alt text](/media/python.png)                         | No error       |  
-|  Checkout     | ![alt text](/media/python.png)                         | No error       |
-| emarket       | ![alt text](/media/python.png)                         | No error       |
-| homepage      | ![alt text](/media/python.png)                         | No error       |
-|  products     | ![alt text](/media/python.png)                         | No error       |
-| profiles      | ![alt text](/media/python.png)                         | No error       |
-| templates     | ![alt text](/media/python.png)                         | No error       |
-|               |                                                        |                |
+|  Blog         | ![alt text](/media/python.png)                         | No error       |
+|  codestar     | ![alt text](/media/python.png)                         | No error       |  
+
 
 
 
@@ -82,14 +76,13 @@ I've tested my deployed project using the Lighthouse Audit tool to check for any
 
 | Page                 |  Size   |      Screenshot                                          |  
 |----------------------|---------|----------------------------------------------------------|
-|   Home               | Mobile  |  ![alt text](/media/image-12.png)                        |
-|   Home               | Desktop |  ![alt text](/media/image-13.png)                        |
-| All Products         |Mobile   |  ![alt text](/media/image-14.png)                        |
-| All Products         | Desktop |  ![alt text](/media/image-15.png)                        |
-|  Legos               |Mobile   |  ![alt text](/media/image-16.png)                        |
-|  Legos               | Desktop |  ![alt text](/media/image-17.png)                        |
-| Lego Testinmonial    | Mobile  |  ![alt text](/media/image-18.png)                        |
-| Lego Testimonial     |Desktop  |  ![alt text](/media/image-19.png)                        |
+|   Welcome            | Mobile  | ![alt text](static/css/images/lighthouse.png)            |
+|   Welcome            | Desktop | ![alt text](static/css/images/lighthouse.png)            |
+| Blog                 |Mobile   | ![alt text](static/css/images/lighthouse.png)            |
+| Blog                 | Desktop |![alt text](static/css/images/lighthouse.png)             |
+|  add a blog          |Mobile   |![alt text](static/css/images/lighthouse.png)             |
+|  Add a blog          | Desktop |![alt text](static/css/images/lighthouse.png)                     |
+| 
 
 
 ## Browser Testing
@@ -236,6 +229,42 @@ The Website was tested on Google Chrome, Firefox, Safari browsers with no issues
 - **Edit/Delete Options (Comments):** No issues detected.
 - **Edit/Delete Options (Blog Posts):** No issues detected.
 - **Approving Comments:** No issues detected.
+
+### CRUD Testing
+
+Here’s a **condensed CRUD Testing section** in **Markdown** for your README file:
+
+---
+
+## **CRUD Testing**
+
+### **Post Management**
+| **Operation** | **Test Case**                     | **Expected Outcome**                                                                 |
+|---------------|-----------------------------------|-------------------------------------------------------------------------------------|
+| **Create**    | Create a new post                 | Post saved, success message displayed, redirected to post detail page.             |
+| **Update**    | Edit an existing post             | Post updated, success message displayed, redirected to updated post detail page.    |
+| **Delete**    | Delete an existing post           | Post deleted, success message displayed, redirected to home page.                  |
+
+### **Comment Management**
+| **Operation** | **Test Case**                     | **Expected Outcome**                                                                 |
+|---------------|-----------------------------------|-------------------------------------------------------------------------------------|
+| **Create**    | Add a comment to a post           | Comment saved, displayed on post detail page after approval.                        |
+| **Update**    | Edit an existing comment          | Comment updated, success message displayed, updated comment shown.                  |
+| **Delete**    | Delete an existing comment        | Comment deleted, success message displayed, comment removed from post detail page.  |
+
+### **Authorization Tests**
+| **Test Case**                     | **Expected Outcome**                                                                 |
+|-----------------------------------|-------------------------------------------------------------------------------------|
+| Unauthorized post edit            | Error message: "You are not authorized to edit this post."                          |
+| Unauthorized post delete          | Error message: "You are not authorized to delete this post."                        |
+| Unauthorized comment edit         | Error message: "You can only edit your own comments!"                               |
+| Unauthorized comment delete       | Error message: "You can only delete your own comments!"                             |
+
+### **Edge Cases**
+| **Test Case**                     | **Expected Outcome**                                                                 |
+|-----------------------------------|-------------------------------------------------------------------------------------|
+| Create post with duplicate title  | Slug modified to ensure uniqueness (e.g., `title-1`, `title-2`).                   |
+| Save post as draft                | Post saved as draft, message: "Your draft blog has been saved."                     |
 
 
 
@@ -423,3 +452,4 @@ The Website was tested on Google Chrome, Firefox, Safari browsers with no issues
 |             | NavBar shows 'Sign Out' instead of 'Sign Up' and 'Sign In'.      | as expected |
 |             | and user is now allowed to comment on any published posts.       | as expected |
 
+### Lighthouse Audit Report
