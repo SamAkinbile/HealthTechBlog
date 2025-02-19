@@ -140,7 +140,7 @@ The live link can be found here - [HealthTech](https://healthtechblog-5cf577763b
 - **Done**:
   - Initial deployment completed.
 
-### **Example of Task Assignment**
+### **Task Assignment**
 | **Task**                      | **Assigned To** | **Deadline** | **Status**   |
 |-------------------------------|-----------------|--------------|--------------|
 | Implement post creation       | Myself          | 2023-02-09   | Done         |
@@ -199,6 +199,54 @@ The color scheme of our blog is thoughtfully crafted using a balanced mix of gol
 - Dark Grey Elements: Dark grey is employed for text and key sections, ensuring clear readability and visual balance.
 
 We have prioritised strong contrast between the background colors and text to maximize user accessibility. This neutral color palette ensures a user-friendly experience, allowing the blog content to stand out while providing a smooth and enjoyable browsing experience for all visitors.
+
+### Data Schema and Relationships
+
+## **1. User Model Relationships**  
+- **User ↔ Post (1:M)** → Users can create multiple blog posts.  
+- **User ↔ Comment (1:M)** → Users can leave multiple comments.  
+- **User ↔ Like (M:M)** → Users can like multiple posts.  
+- **User ↔ Review (1:M)** → Users can leave multiple reviews.  
+- **User ↔ NewsletterSubscription (1:M)** → Users can subscribe to newsletters.  
+
+## **2. Blog Post Model**  
+- **Post ↔ Comment (1:M)** → A post can have multiple comments.  
+- **Post ↔ Like (M:M)** → A post can be liked by multiple users.  
+- **Post ↔ Review (1:M)** → A post can have multiple reviews.  
+
+## **3. Comment Model**  
+- **Comment ↔ Post (M:1)** → A comment belongs to one post.  
+- **Comment ↔ User (M:1)** → A comment belongs to one user.  
+
+## **4. Review Model**  
+- **Review ↔ Post (M:1)** → A review belongs to one post.  
+- **Review ↔ User (M:1)** → A review is written by one user.  
+
+## **5. Newsletter Subscription Model**  
+- **NewsletterSubscription ↔ User (M:1)** → A user can subscribe to multiple newsletters.  
+
+## **6. Contact Model**  
+- Stores visitor inquiries with **name, email, and message** (no login required).  
+
+---
+
+## **Entity Relationship Summary**  
+| **Model** | **Relationships** |  
+|------------|------------------|  
+| **User** | 1:M Posts, 1:M Comments, M:M Likes, 1:M Reviews, 1:M Newsletter Subscriptions |  
+| **Post** | 1:M Comments, M:M Likes, 1:M Reviews |  
+| **Comment** | M:1 Posts, M:1 Users |  
+| **Review** | M:1 Users, M:1 Posts |  
+| **NewsletterSubscription** | M:1 Users |  
+| **Contact** | Independent |  
+
+
+## **Key Features**  
+- **CRUD operations** on **Posts, Comments, Likes, and Reviews**.  
+- **Secure authentication** for post editing, deletion, and commenting.  
+- **Slug-based URLs** for SEO-friendly blog post links.  
+- **Admin approval** required for comments.  
+
 
 #### Imagery
 Our blog homepage features a prominent static image that showcases an exciting and engaging visual centerpiece. The color scheme of the site, with its vibrant green and yellow tones, perfectly complements this main image, reflecting the playful and imaginative nature of our content.
