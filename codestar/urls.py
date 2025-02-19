@@ -15,15 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from django.contrib import admin
 from blog import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('contact/', views.contact, name='contact_form'),
-    path('subscribe/', views.newsletter_subscription, name='newsletter_subscription'),
+    path('subscribe/', views.newsletter_subscription,
+         name='newsletter_subscription'),
     path('summernote/', include('django_summernote.urls')),
-    path('', include('blog.urls'), name='blog.urls'),
+    path('', include('blog.urls'), name='blog_urls'),
     path('accounts/', include('allauth.urls')),
-
 ]

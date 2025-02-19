@@ -19,11 +19,10 @@ class PostList(generic.ListView):
     paginate_by = 6
 
 
-
 class PostDetail(View):
 
     def get(self, request, slug, *args, **kwargs):
-        queryset = Post.objects.filter(status__in=[0, 1])  # Adjusted to include both published and draft posts
+        queryset = Post.objects.filter(status__in=[0, 1])
         post = get_object_or_404(queryset, slug=slug)
         comments = post.comments.filter(approved=True).order_by("-created_on")
         liked = False
@@ -38,16 +37,16 @@ class PostDetail(View):
                 "comments": comments,
                 "commented": False,
                 "liked": liked,
-                "comment_form": CommentForm()
+                "comment_form": CommentForm(),
             },
         )
 
     def post(self, request, slug, *args, **kwargs):
-        queryset = Post.objects.filter(status__in=[0, 1])  # Adjusted to include both published and draft posts
+        queryset = Post.objects.filter(status__in=[0, 1])
         post = get_object_or_404(queryset, slug=slug)
         comments = post.comments.filter(approved=True).order_by("-created_on")
         liked = False
-        if post.likes.filter(id=self.request.user.id).exists():
+        if post.likes.filter(id=request.user.id).exists():
             liked = True
 
         comment_form = CommentForm(data=request.POST)
@@ -68,14 +67,13 @@ class PostDetail(View):
                 "comments": comments,
                 "commented": True,
                 "comment_form": comment_form,
-                "liked": liked
+                "liked": liked,
             },
         )
 
 
-
 class PostLike(View):
-    
+
     def post(self, request, slug, *args, **kwargs):
         post = get_object_or_404(Post, slug=slug)
         if post.likes.filter(id=request.user.id).exists():
@@ -83,11 +81,12 @@ class PostLike(View):
         else:
             post.likes.add(request.user)
 
-        return HttpResponseRedirect(reverse('post_detail', args=[slug]))
+        return HttpResponseRedirect(
+            reverse('post_detail', args=[slug])
+        )
 
 
-
-# add a blog 
+# Add a blog
 @login_required
 def post_create(request):
     if request.method == 'POST':
@@ -113,13 +112,18 @@ def post_create(request):
             if post.status == 1:
                 messages.info(request, "Your draft blog has been saved.")
             else:
-                messages.success(request, "Your post has been published successfully.")
+                messages.success(
+                    request,
+                    "Your post has been published successfully."
+                )
 
             return redirect('post_detail', slug=post.slug)
     else:
         form = PostForm()
 
-    return render(request, 'blog/post_form.html', {'form': form})
+    return render(
+        request, 'blog/post_form.html', {'form': form}
+    )
 
 
 @login_required
@@ -128,19 +132,25 @@ def post_update(request, slug):
 
     # Ensure only the post's author can edit
     if request.user != post.author:
-        messages.error(request, "You are not authorized to edit this post.")
-        return redirect(reverse('post_detail', kwargs={'slug': slug}))  # Redirect if not allowed
+        messages.error(
+            request,
+            "You are not authorized to edit this post."
+        )
+        return redirect(reverse('post_detail', kwargs={'slug': slug}))
 
     if request.method == "POST":
         form = PostForm(request.POST, request.FILES, instance=post)
         if form.is_valid():
             form.save()
             messages.success(request, "Your post has been updated.")
-            return redirect(reverse('post_detail', kwargs={'slug': post.slug}))  # Redirect to updated post
+            return redirect(reverse('post_detail', kwargs={'slug': post.slug}))
     else:
-        form = PostForm(instance=post)  # Load existing data
+        form = PostForm(instance=post)
 
-    return render(request, 'blog/post_edit.html', {'form': form, 'post': post})
+    return render(
+        request, 'blog/post_edit.html', {'form': form, 'post': post}
+    )
+
 
 @login_required
 def post_delete(request, slug):
@@ -148,7 +158,10 @@ def post_delete(request, slug):
 
     # Ensure only the author can delete
     if request.user != post.author:
-        messages.error(request, "You are not authorized to delete this post.")
+        messages.error(
+            request,
+            "You are not authorized to delete this post."
+        )
         return redirect(reverse("post_detail", kwargs={'slug': slug}))
 
     if request.method == "POST":
@@ -156,21 +169,26 @@ def post_delete(request, slug):
         messages.success(request, "Your post has been deleted.")
         return redirect("home")
 
-    return render(request, "blog/post_confirm_delete.html", {"post": post})  # Explicit path
+    return render(
+        request, "blog/post_confirm_delete.html", {"post": post}
+    )
 
 
-
-# newletter and contact us
+# Newsletter and contact us
 def newsletter_subscription(request):
     if request.method == 'POST':
         form = NewsletterForm(request.POST)
         if form.is_valid():
             form.save()
-            messages.success(request, "Subscribed to newsletter successfully!")
-            return redirect('welcome')  # Change to your desired redirect URL
+            messages.success(
+                request, "Subscribed to newsletter successfully!"
+            )
+            return redirect('welcome')
     else:
         form = NewsletterForm()
-    return render(request, 'blog/newsletter_subscription.html', {'form': form})
+    return render(
+        request, 'blog/newsletter_subscription.html', {'form': form}
+    )
 
 
 def contact(request):
@@ -178,15 +196,20 @@ def contact(request):
         form = ContactForm(request.POST)
         if form.is_valid():
             form.save()
-            messages.success(request, "Your message has been sent successfully!")
-            return redirect('welcome')  
+            messages.success(
+                request, "Your message has been sent successfully!"
+            )
+            return redirect('welcome')
     else:
         form = ContactForm()
-    return render(request, 'blog/contact_form.html', {'form': form})
+    return render(
+        request, 'blog/contact_form.html', {'form': form}
+    )
 
 
 def welcome(request):
     return render(request, 'welcome.html')
+
 
 def blog_home(request):
     return render(request, 'blog/post_detail')
@@ -194,10 +217,9 @@ def blog_home(request):
 
 def comment_edit(request, slug, comment_id):
     """
-    view to edit comments
+    View to edit comments.
     """
     if request.method == "POST":
-
         queryset = Post.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
         comment = get_object_or_404(Comment, pk=comment_id)
@@ -210,20 +232,16 @@ def comment_edit(request, slug, comment_id):
             comment.save()
             messages.add_message(request, messages.SUCCESS, 'Comment Updated!')
         else:
-            messages.add_message(request, messages.ERROR, 'Error updating comment!')
+            messages.add_message(
+                request, messages.ERROR, 'Error updating comment!'
+            )
 
     return HttpResponseRedirect(reverse('post_detail', args=[slug]))
+
 
 def comment_delete(request, slug, comment_id):
     """
     Delete an individual comment.
-
-    **Context**
-
-    ``post``
-        An instance of :model:`blog.Post`.
-    ``comment``
-        A single comment related to the post.
     """
     queryset = Post.objects.filter(status=1)
     post = get_object_or_404(queryset, slug=slug)
@@ -233,23 +251,24 @@ def comment_delete(request, slug, comment_id):
         comment.delete()
         messages.add_message(request, messages.SUCCESS, 'Comment deleted!')
     else:
-        messages.add_message(request, messages.ERROR,
-                             'You can only delete your own comments!')
+        messages.add_message(
+            request,
+            messages.ERROR,
+            'You can only delete your own comments!'
+        )
 
     return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
 
-
 def review_edit(request, event_id, review_id):
     """
-    view to edit reviews
+    View to edit reviews.
     """
     if request.method == "POST":
-
         queryset = Event.objects.all()
         event = get_object_or_404(queryset, pk=event_id)
         review = get_object_or_404(Review, pk=review_id)
-        review_form = ReviewForm(data=request.POST, instance=review)  
+        review_form = ReviewForm(data=request.POST, instance=review)
 
         if review_form.is_valid() and review.reviewer == request.user:
             review = review_form.save(commit=False)
@@ -258,6 +277,10 @@ def review_edit(request, event_id, review_id):
             review.save()
             messages.add_message(request, messages.SUCCESS, 'Review Updated!')
         else:
-            messages.add_message(request, messages.ERROR, 'Error updating Review!')
+            messages.add_message(
+                request,
+                messages.ERROR,
+                'Error updating Review!'
+            )
 
     return HttpResponseRedirect(reverse('event_detail', args=[event_id]))

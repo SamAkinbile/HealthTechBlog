@@ -862,9 +862,11 @@ Python testing was done using CI Python Linter to ensure there were no syntax er
 
 | App           |        Screenshots                                     |                |
 |---------------|--------------------------------------------------------|----------------|
-|  Blog         | ![alt text](static/css/images/python.png)               | No error       |
-|  codestar     | ![alt text](static/css/images/python.png)              | No error       |  
-
+|Blog(view.py)  | ![alt text](static/css/images/python_test1.png)        | No error       |
+|  urls.py      | ![alt text](static/css/images/python_test2.png)        | Tested         |  
+| Models.py     | ![test](static/css/images/python_test3..png)           | No error       |
+| Forms.py      |![alt text](static/css/images/forms.py.png)             | No error       |
+|Codestar(urls) |![alt text](codestar_urls.png)                          | No error       |      
 
 
 
@@ -874,7 +876,7 @@ I have used the recommended [CSS Jigsaw Validator](https://jigsaw.w3.org/css-val
 
 |  File      | Jigsaw Screenshot                                                         |  Note
 |------------|---------------------------------------------------------------------------|-------------------
-| style.css  |   ![css](static/css/images/style.css_validating_no_error)                 |  No error
+| style.css  |   ![css](static/css/images/w3c_validation.png)                            |  No error
                                                     
 
 ## Lighthouse Audit
