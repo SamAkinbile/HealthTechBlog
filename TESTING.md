@@ -866,7 +866,7 @@ Python testing was done using CI Python Linter to ensure there were no syntax er
 |  urls.py      | ![alt text](static/css/images/python_test2.png)        | Tested         |  
 | Models.py     | ![test](static/css/images/python_test3..png)           | No error       |
 | Forms.py      |![alt text](static/css/images/forms.py.png)             | No error       |
-|Codestar(urls) |![alt text](codestar_urls.png)                          | No error       |      
+|Codestar(urls) |![alt text](static/css/images/codestar_urls.png)        | No error       |      
 
 
 
@@ -1244,4 +1244,6 @@ The Website was tested on Google Chrome, Firefox, Safari browsers with no issues
 |             | "Signed in as ..." is displayed on the rightside below pop-up,   | as expected |
 |             | NavBar shows 'Sign Out' instead of 'Sign Up' and 'Sign In'.      | as expected |
 |             | and user is now allowed to comment on any published posts.       | as expected |
-
+|Forgot your  |                                                                  | Not working |
+|Password     |  Not tested                                                      | Not tested  |
+|button       |
