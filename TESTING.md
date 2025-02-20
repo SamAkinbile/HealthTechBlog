@@ -847,14 +847,14 @@ I have used the recommended [HTML W3C Validator](https://validator.w3.org/nu/#te
 | Page             |    W3C Screnshots                                                             |             
 | -----------------|-------------------------------------------------------------------------------|
 | Welcome Page     |  ![alt text](static/css/images/w3c_validation.png)                            |
-| Blog Page   |  ![alt text](static/css/images/w3c_validation.png)                                 |            
+| Blog Page        |  ![alt text](static/css/images/w3c_validation.png)                            |            
 | Contact Us       | ![alt text](static/css/images/w3c_validation.png)                             |
 | Newsletter Page  | ![alt text](static/css/images/w3c_validation.png)                             |
-|  Blog Main Page | ![alt text](static/css/images/strange_error.png)                               |
+|  Blog Main Page  | ![alt text](static/css/images/strange_error.png)                               |
 | Add a Blog post  |  ![alt text](static/css/images/w3c_validation.png)                            |
 | Edit Blog        |  ![alt text](static/css/images/w3c_validation.png)                            |
 
-- The errors originate from the walkthrough project, and each main post or blog detail page may contain validation issues when checked.
+- The errors on Blog Main Page originate from the walkthrough project, and each main post or blog detail page may contain validation issues/error when checked.
 
 
 ### PYTHON VALIDATION
