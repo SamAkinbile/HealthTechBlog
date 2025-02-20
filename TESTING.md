@@ -131,7 +131,7 @@ The Website was tested on Google Chrome, Firefox, Safari browsers with no issues
 |             |                                                       |             |
 | NEXT >>     | Visible only on Home page (accessed via               | as expected |
 |             | Home page or Logo),                                   |             |
-|             | Clickable,                                            | as expected |
+|             | Clickable,  if blogs are added                        | as expected |
 |             | Available to user when signed in,                     | as expected |
 |             | And when not signed in,                               | as expected |
 |             | On the next page << PREV NavButton appears instead    | as expected |
