@@ -867,7 +867,7 @@ Python testing was done using CI Python Linter to ensure there were no syntax er
 | Models.py     | ![test](static/css/images/python_test3..png)           | No error       |
 | Forms.py      |![alt text](static/css/images/forms.py.png)             | No error       |
 |Codestar(urls) |![alt text](static/css/images/codestar_urls.png)        | No error       |      
-
+|
 
 
 ### CSS
@@ -956,7 +956,7 @@ The Website was tested on Google Chrome, Firefox, Safari browsers with no issues
 |             |                                                       |             |
 | NavBar Text | Not Clickable,                                        | as expected |
 |             | Health is Wealth,                                     | as expected |
-|             | Visible in bottom centre on all pages                 | as expected |
+|             | Visible in top right on all pages                     | as expected |
 
 ### Communications Dropdown Menu
 

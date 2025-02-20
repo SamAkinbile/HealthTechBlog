@@ -10,15 +10,18 @@ class CommentForm(forms.ModelForm):
         model = Comment
         fields = ('body',)
 
+
 class PostForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields = ['title', 'content', 'featured_image', 'status'] 
+        fields = ['title', 'content', 'featured_image', 'status']
+
 
 class NewsletterForm(forms.ModelForm):
     class Meta:
         model = NewsletterSubscription
         fields = ['email']
+
 
 class ContactForm(forms.ModelForm):
     class Meta:
