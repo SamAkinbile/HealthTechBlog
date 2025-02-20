@@ -1,7 +1,7 @@
 # HealthTech
 
 
-Welcome to our HealthTech Blog, your go-to source for the latest innovations and insights in healthcare technology. Whether you're an emerging enthusiast starting with basic health gadgets or a seasoned professional exploring advanced medical devices, our blog offers a wealth of information and resources to support your journey.
+Discover the world of HealthTech on our blog! Dive into the latest breakthroughs and cutting-edge innovations in healthcare technology, from basic health gadgets to advanced medical devices. Our blog is your ultimate resource for staying informed and inspired on your health tech journey.
 
 
 
@@ -202,6 +202,8 @@ We have prioritised strong contrast between the background colors and text to ma
 
 ### Data Schema and Relationships
 
+![alt text](static/css/images/data_schema_blog_post.webp)
+
 ## **1. User Model Relationships**  
 - **User ↔ Post (1:M)** → Users can create multiple blog posts.  
 - **User ↔ Comment (1:M)** → Users can leave multiple comments.  
@@ -228,7 +230,7 @@ We have prioritised strong contrast between the background colors and text to ma
 ## **6. Contact Model**  
 - Stores visitor inquiries with **name, email, and message** (no login required).  
 
----
+
 
 ## **Entity Relationship Summary**  
 | **Model** | **Relationships** |  
@@ -575,7 +577,10 @@ To clone this repository follow the below steps:
 - [Pexels](https://www.pexels.com/): Imagery on the site was sourced from Pexels.com
 - [Unsplashed](https://unsplash.com/): Imagery on the site was sourced from Unsplash
 - [Code Institute - Codestar Walkthrough Project](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+FSD101_WTS+5/courseware/713441aba05441dfb3a7cf04f3268b3f/824fccecd0fe4e44871eeabcbf69d830/)
+- [Code Institute - Codestar Walkthrough Project](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+FST101+2/courseware/b31493372e764469823578613d11036b/fe4299adcd6743328183aab4e7ec5d13/)
 - [Stack Overflow](https://stackoverflow.com/questions/19619428/html5-form-validation-pattern-alphanumeric-with-spaces): To prevent form being submitted with whitespace
+- [opeanai.com](https://openai.com/)
+- [chatghpt](https://chatgpt.com/)
 
 ### Find testing here[text](TESTING.md)
 
