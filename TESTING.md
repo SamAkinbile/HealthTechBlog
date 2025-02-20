@@ -871,7 +871,7 @@ Python testing was done using CI Python Linter to ensure there were no syntax er
 
 ### CSS
 
-I have used the recommended [CSS Jigsaw Validator](https://jigsaw.w3.org/css-validator) to validate all of my CSS files.
+I have used the recommended [CSS Jigsaw Validator](https://jigsaw.w3.org/css-validator) to validate my CSS files.
 
 |  File      | Jigsaw Screenshot                                                         |  Note
 |------------|---------------------------------------------------------------------------|-------------------
